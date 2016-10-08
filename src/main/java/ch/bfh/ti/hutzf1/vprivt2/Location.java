@@ -9,6 +9,12 @@ package ch.bfh.ti.hutzf1.vprivt2;
  *
  * @author fh
  */
-public class Commit {
+public class Location {
     
+    public final int LATIDUDE = randomLocation();
+    public final int LONGITUDE = randomLocation();
+    
+    private int randomLocation() {
+        return 10;
+    }
 }

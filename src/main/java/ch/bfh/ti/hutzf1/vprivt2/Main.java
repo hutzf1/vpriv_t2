@@ -6,7 +6,9 @@
 package ch.bfh.ti.hutzf1.vprivt2;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+import java.util.Random;
+
 
 /**
  *
@@ -19,25 +21,72 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        ServiceProvider sp = new ServiceProvider();
         Log log = new Log();
 
-        // Vehicle Variables
+        // Variables
         int numberOfVehicles = 10;
         int n = 250; // number of new tags
         int s = 100; // number of new keys
         int maxToll = 50;
         int round = 1;
         int i = round-1; // round (i element of [1; s])
+        Random rand = new Random();
         
         // Generate Vehicles
         Vehicle v1 = new Vehicle();
-        List<Vehicle> vehicles = new ArrayList<>();
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
         for (int x = 0; i < numberOfVehicles; i++) {
             Vehicle newVehicle = new Vehicle();
+            newVehicle.setVariables(n, s);
             vehicles.add(newVehicle);
-            log.Console(newVehicle.GetId());
+            log.console(newVehicle.getId());
         }
         
+        ////////////////////////
+        // REGISTRATION PHASE //
+        ////////////////////////
+        
+
+        
+        
+        
+        ///////////////////
+        // DRIVING PHASE //
+        ///////////////////
+        
+        log.console("Start Driving Phase");
+        
+        
+        
+        for (Vehicle vehicle : vehicles) {
+            // Vehicle is driving, so how to do?
+            Location currentLocation = new Location();
+            Date timestamp = new Date();
+            for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
+                //sp.putDrivingData(Vehicle., currentLocation, timestamp);
+            }
+        }
+        
+        log.console("End of Driving Phase");
+        
+        
+        
+        
+        for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
+            int cost = rand.nextInt(5) + 1;
+            //String tag = V[rand.nextInt(n)];
+            //W.put(tag, cost);
+            log.console("Vehicle drives through a Toll Station using Tag: ");// + tag);
+        }
+
+        
+        
+        
+        
+        //////////////////////////
+        // RECONCILIATION PHASE //
+        //////////////////////////
         
         
         

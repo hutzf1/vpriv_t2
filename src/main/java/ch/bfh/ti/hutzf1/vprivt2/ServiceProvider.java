@@ -5,10 +5,17 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import java.util.Date;
+
 /**
  *
  * @author fh
  */
 public class ServiceProvider {
+    
+    
+    public void putDrivingData(String tag, Location loc, Date timestamp) {
+        
+    }
     
 }

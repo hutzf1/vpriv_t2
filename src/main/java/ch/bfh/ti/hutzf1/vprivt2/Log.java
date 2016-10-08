@@ -11,11 +11,11 @@ package ch.bfh.ti.hutzf1.vprivt2;
  */
 public class Log {
     
-    public void Console(String message) {
+    public void console(String message) {
         System.out.println(message);
     }
     
-    public void File(String message) {
+    public void file(String message) {
         System.out.println(message);
     }
     
