@@ -9,13 +9,14 @@ package ch.bfh.ti.hutzf1.vprivt2;
  *
  * @author fh
  */
-public class HelloWorld {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class Log {
+    
+    public void Console(String message) {
+        System.out.println(message);
+    }
+    
+    public void File(String message) {
+        System.out.println(message);
     }
     
 }
