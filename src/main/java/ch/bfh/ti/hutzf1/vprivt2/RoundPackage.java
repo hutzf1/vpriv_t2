@@ -5,6 +5,7 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
 import java.util.ArrayList;
 
 /**
@@ -12,15 +13,20 @@ import java.util.ArrayList;
  * @author fh
  */
 public class RoundPackage {
-    public final String ID;
-    public final int I;
-    public final String KEY;
-    public final ArrayList<String> HASHES;
+    public String id;
+    public int i;
+    public Element key;
+    public ArrayList<Element> hashes;
     
-    public RoundPackage(String id, int i, String key, ArrayList<String> hashes) {
-        ID = id;
-        I = i;
-        KEY = key;
-        HASHES = hashes;
+    public void addId(String id) {
+        this.id = id;
+    }
+    
+    public void addRound(int i) {
+        this.i = i;
+    }
+    
+    public void addCommit(Element commit) {
+        this.hashes.add(commit);
     }
 }

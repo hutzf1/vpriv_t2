@@ -22,6 +22,8 @@ public class Main {
     public static void main(String[] args) {
         
         ServiceProvider sp = new ServiceProvider();
+        PedersenScheme ps = new PedersenScheme();
+        Hash hash = new Hash();
         Log log = new Log();
 
         // Variables
@@ -34,10 +36,9 @@ public class Main {
         Random rand = new Random();
         
         // Generate Vehicles
-        Vehicle v1 = new Vehicle();
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         for (int x = 0; i < numberOfVehicles; i++) {
-            Vehicle newVehicle = new Vehicle();
+            Vehicle newVehicle = new Vehicle(sp, ps, hash);
             newVehicle.setVariables(n, s);
             vehicles.add(newVehicle);
             log.console(newVehicle.getId());
@@ -47,7 +48,7 @@ public class Main {
         // REGISTRATION PHASE //
         ////////////////////////
         
-
+        
         
         
         

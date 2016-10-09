@@ -13,6 +13,7 @@ import java.util.Random;
  *
  * @author fh
  */
+
 public class Vehicle {
     
     // Set vehicles license plate
@@ -20,9 +21,7 @@ public class Vehicle {
     // Set variables
     private int n = 0;
     private int s = 0;
-    
-    // Pedersen Scheme
-    private PedersenScheme ps = new PedersenScheme();
+    private int i = 0;
     
     private final Element[] TAGS = new Element[n];
     private final Element[] KEYS = new Element[s];
@@ -31,7 +30,7 @@ public class Vehicle {
      
     private final ArrayList<String> HASHES = new ArrayList<>();
     
-    public Vehicle() {
+    public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash) {
         
         //Log("Start Registration Phase");
         
@@ -69,14 +68,13 @@ public class Vehicle {
             //Log("Key OK: "+ DK[x]);
         }
         
-        
-        
-        
-        
-        
-        
-        HASHES.add("TEST");
-        final RoundPackage RI = new RoundPackage("1", 2, "3", HASHES);
+        final RoundPackage RI = new RoundPackage();
+
+        RI.addId(ID);
+        RI.addRound(i);
+        for(int x = 0; x < n; x++) {
+            RI.addCommit(ps.commit(hash.Hash(TAGS[x], KEYS[i]), DV[i][x]));
+        }
     }
     
     private String generateID() {
@@ -98,6 +96,10 @@ public class Vehicle {
     public void setVariables(int n, int s) {
         this.n = n;
         this.s = s;
+    }
+    
+    public void setRound(int i) {
+        this.i = i;
     }
     
     /*public String getDrivingTag() {
