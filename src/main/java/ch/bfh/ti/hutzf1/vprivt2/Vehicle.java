@@ -16,65 +16,78 @@ import java.util.Random;
 
 public class Vehicle {
     
-    // Set vehicles license plate
     private final String ID = generateID();
-    // Set variables
-    private int n = 0;
-    private int s = 0;
-    private int i = 0;
-    
-    private final Element[] TAGS = new Element[n];
-    private final Element[] KEYS = new Element[s];
-    private final Element[][] DV = new Element [s][n];
-    private final Element[] DK = new Element[s];
-     
-    private final ArrayList<String> HASHES = new ArrayList<>();
-    
-    public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash) {
+
+    public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash, Log log, int n, int s) {
         
-        //Log("Start Registration Phase");
+        // Set vehicles license plate
+        
+        // Set variables
+        //private int n = 0;
+        //private int s = 0;
+        int i = 0;
+
+        final Element[] TAGS = new Element[n];
+        final Element[] KEYS = new Element[s];
+        final Element[][] DV = new Element [s][n];
+        final Element[] DK = new Element[s];
+        
+        final ArrayList<String> HASHES = new ArrayList<>();
+        
+        log.console(ID + " starts registration phase");
         
         // Generate Fresh Tags
-        //Log("Generate Fresh Tags");
+        log.console(ID + " generates fresh tags");
         
         for (int x = 0; x < n; x++) {
             TAGS[x] = ps.getMessage();
-            //Log("Tag: " + V[x]);
+            log.console(ID + " tag: " + TAGS[x].getValue());
         }
         
         // Fresh Keys
-        //Log("Generate Fresh Keys");
+        log.console(ID + " generates fresh keys");
         
         for (int x = 0; x < s; x++) {
             KEYS[x] = ps.getMessage();
-            //Log("Key: " + K[y]);
+            log.console (ID + " key: " + KEYS[x].getValue());
         }
   
         // Opening Keys for Tags
-        //Log("Generate Opening Keys for Tags");
+        log.console(ID + " generates opening keys for tags");
         
         for (int x = 0; x < s; x++) {
             for (int y = 0; y < n; y++) {
                 DV[x][y] = ps.getKey();
-                //Log("Tag OK: " + DV[x][y]);
+                log.console(ID + " tag opening key: " + DV[x][y].getValue());
             }
         }
         
         // Opening Keys for Keys
-        //Log("Generate Opening Keys for Keys");
+        log.console(ID + " generate opening keys for keys");
         
         for (int x = 0; x < s; x++) {
             DK[x] = ps.getKey();
-            //Log("Key OK: "+ DK[x]);
+            log.console(ID + " key opening key: "+ DK[x].getValue());
         }
         
         final RoundPackage RI = new RoundPackage();
-
+        log.console(ID + " generates round package");
+        
         RI.addId(ID);
+        log.console(ID + " adds ID " + ID + " to round package");
+        
         RI.addRound(i);
+        log.console(ID + " adds round " + i + " to round package");
+        
         for(int x = 0; x < n; x++) {
-            RI.addCommit(ps.commit(hash.Hash(TAGS[x], KEYS[i]), DV[i][x]));
+            // ENCRYPTION MISSING HERE!!!
+            //RI.addCommit(ps.commit(hash.Hash(TAGS[x], KEYS[i]), DV[i][x]));
+            RI.addCommit(ps.commit(TAGS[x], DV[i][x]));
+            log.console(ID + " adds commit of crypted " + TAGS[x].getValue() + " to round package");
         }
+        
+        sp.putDrivingData(RI);
+        log.console(ID + " send round package to service proivder");
     }
     
     private String generateID() {
@@ -92,15 +105,10 @@ public class Vehicle {
     public String getId() {
         return ID;
     }
-    
-    public void setVariables(int n, int s) {
-        this.n = n;
-        this.s = s;
-    }
-    
+     /*
     public void setRound(int i) {
         this.i = i;
-    }
+    }*/
     
     /*public String getDrivingTag() {
         return TAGS[];

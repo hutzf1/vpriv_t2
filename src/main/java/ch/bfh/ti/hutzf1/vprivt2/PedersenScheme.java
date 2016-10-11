@@ -10,6 +10,8 @@ import ch.bfh.unicrypt.math.algebra.general.classes.BooleanElement;
 import ch.bfh.unicrypt.math.algebra.general.interfaces.CyclicGroup;
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
 import ch.bfh.unicrypt.math.algebra.multiplicative.classes.GStarModSafePrime;
+import java.util.Random;
+
 
 /**
  *
@@ -29,7 +31,8 @@ public class PedersenScheme {
     
     public Element getMessage() {
         // Create message and randomization to commit
-        Element message = COMMITMENTSCHEME.getMessageSpace().getElement(42);
+        Random random = new Random();
+        Element message = COMMITMENTSCHEME.getMessageSpace().getElement(random.nextInt(60 + 1));
         return message;
     }
     

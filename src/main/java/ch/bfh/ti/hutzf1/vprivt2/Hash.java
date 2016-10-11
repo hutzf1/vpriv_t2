@@ -32,7 +32,6 @@ public class Hash {
             Tuple tuple = messageSpace.getElement(message, key);
             //            Tuple message = messageSpace.getElement(stringElement, bigIntegerElement);
 
-
             FixedByteArrayHashingScheme scheme = FixedByteArrayHashingScheme.getInstance(messageSpace);
 
             Element hash = scheme.hash(tuple);

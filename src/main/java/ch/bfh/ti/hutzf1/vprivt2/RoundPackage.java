@@ -16,7 +16,7 @@ public class RoundPackage {
     public String id;
     public int i;
     public Element key;
-    public ArrayList<Element> hashes;
+    public ArrayList<Element> hashes = new ArrayList<>();
     
     public void addId(String id) {
         this.id = id;
@@ -27,6 +27,6 @@ public class RoundPackage {
     }
     
     public void addCommit(Element commit) {
-        this.hashes.add(commit);
+        hashes.add(commit);
     }
 }

@@ -28,8 +28,8 @@ public class Main {
 
         // Variables
         int numberOfVehicles = 10;
-        int n = 250; // number of new tags
-        int s = 100; // number of new keys
+        int n = 20; // number of new tags
+        int s = 10; // number of new keys
         int maxToll = 50;
         int round = 1;
         int i = round-1; // round (i element of [1; s])
@@ -38,8 +38,7 @@ public class Main {
         // Generate Vehicles
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         for (int x = 0; i < numberOfVehicles; i++) {
-            Vehicle newVehicle = new Vehicle(sp, ps, hash);
-            newVehicle.setVariables(n, s);
+            Vehicle newVehicle = new Vehicle(sp, ps, hash, log, n, s);
             vehicles.add(newVehicle);
             log.console(newVehicle.getId());
         }
@@ -48,9 +47,8 @@ public class Main {
         // REGISTRATION PHASE //
         ////////////////////////
         
-        
-        
-        
+        // Registration is handled by each vehicle.
+        // ENCRYPTION MISSING HERE!!!
         
         ///////////////////
         // DRIVING PHASE //
@@ -73,14 +71,14 @@ public class Main {
         
         
         
-        
+        /*
         for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
             int cost = rand.nextInt(5) + 1;
             //String tag = V[rand.nextInt(n)];
             //W.put(tag, cost);
-            log.console("Vehicle drives through a Toll Station using Tag: ");// + tag);
+            log.console("Vehicle drives through a Toll Station using Tag: " );// + tag);
         }
-
+        */
         
         
         
