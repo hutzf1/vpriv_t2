@@ -5,10 +5,10 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
-
 
 /**
  *
@@ -35,6 +35,8 @@ public class Main {
         int i = round-1; // round (i element of [1; s])
         Random rand = new Random();
         
+        log.console("Start Registration Phase");
+        
         // Generate Vehicles
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         for (int x = 0; i < numberOfVehicles; i++) {
@@ -50,49 +52,40 @@ public class Main {
         // Registration is handled by each vehicle.
         // ENCRYPTION MISSING HERE!!!
         
+        log.console("End Registration Phase");
+        
         ///////////////////
         // DRIVING PHASE //
         ///////////////////
         
         log.console("Start Driving Phase");
         
-        
-        
         for (Vehicle vehicle : vehicles) {
             // Vehicle is driving, so how to do?
-            Location currentLocation = new Location();
-            Date timestamp = new Date();
             for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
-                //sp.putDrivingData(Vehicle., currentLocation, timestamp);
+                Location currentLocation = new Location();
+                Date timestamp = new Date();
+                Element randomTag = vehicle.getRandomTag();
+                int toll = sp.putDrivingData(randomTag, currentLocation, timestamp);
+                log.console(vehicle.getId() + " is driving. Tag " + randomTag.getValue() + " (" + currentLocation.LATIDUDE + ", " + currentLocation.LONGITUDE + ") - " + timestamp);
+                log.console(vehicle.getId() + " value of a toll station is " + toll);
             }
         }
         
         log.console("End of Driving Phase");
-        
-        
-        
-        /*
-        for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
-            int cost = rand.nextInt(5) + 1;
-            //String tag = V[rand.nextInt(n)];
-            //W.put(tag, cost);
-            log.console("Vehicle drives through a Toll Station using Tag: " );// + tag);
-        }
-        */
-        
-        
-        
-        
+
         //////////////////////////
         // RECONCILIATION PHASE //
         //////////////////////////
         
+        log.console("Start Reconciliation Phase");
         
-        
-        
-        
-        
-        
+        for (Vehicle vehicle : vehicles) {
+            log.console(vehicle.getId() + " is calculating cost...");
+            int c = vehicle.calcCost(sp.getAllTags(), log);
+            log.console(vehicle.getId() + " calculated " + c);
+            //sp.putCostData(vehicle.getId(), c);
+        }        
     }
     
 }

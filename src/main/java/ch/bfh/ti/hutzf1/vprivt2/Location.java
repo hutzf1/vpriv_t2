@@ -5,16 +5,24 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import java.util.Random;
+
 /**
  *
  * @author fh
  */
 public class Location {
     
-    public final int LATIDUDE = randomLocation();
-    public final int LONGITUDE = randomLocation();
+    public final int LATIDUDE = randomLat();
+    public final int LONGITUDE = randomLong();
     
-    private int randomLocation() {
-        return 10;
+    private int randomLat() {
+        Random rand = new Random();
+        return rand.nextInt(180 + 1);
+    }
+    
+    private int randomLong() {
+        Random rand = new Random();
+        return rand.nextInt(90 + 1);
     }
 }

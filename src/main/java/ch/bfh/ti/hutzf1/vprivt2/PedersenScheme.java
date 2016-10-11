@@ -26,7 +26,7 @@ public class PedersenScheme {
     private final PedersenCommitmentScheme COMMITMENTSCHEME = PedersenCommitmentScheme.getInstance(CYCLICGROUP);
     
     public PedersenScheme() {
-     
+        
     }
     
     public Element getMessage() {

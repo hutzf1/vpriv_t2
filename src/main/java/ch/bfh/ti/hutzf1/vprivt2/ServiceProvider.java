@@ -5,7 +5,10 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -13,10 +16,25 @@ import java.util.Date;
  */
 public class ServiceProvider {
     
+    private ArrayList<DrivingTuple> W = new ArrayList<>();
     
-    public void putDrivingData(RoundPackage RI) {
-        
+    public void putVehicleData(RoundPackage RI) {
         
     }
     
+    public int putDrivingData(Element tag, Location location, Date timestamp) {
+        Random rand = new Random();
+        int toll = rand.nextInt(10);
+        DrivingTuple dr = new DrivingTuple(tag, toll);
+        W.add(dr);
+        return toll;
+    }    
+    
+    public ArrayList<DrivingTuple> getAllTags() {
+        return W;
+    }
+
+    void putCostData(String id, int c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

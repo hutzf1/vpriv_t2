@@ -16,7 +16,15 @@ import java.util.Random;
 
 public class Vehicle {
     
-    private final String ID = generateID();
+    private final String ID;
+    private final ArrayList<Element> TAGS;
+    private final ArrayList<Element> KEYS;
+    private final ArrayList<Element> DV;
+    private final ArrayList<Element> DK;
+    
+    private final int i;
+    private final int n;
+    private final int s;
 
     public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash, Log log, int n, int s) {
         
@@ -25,12 +33,16 @@ public class Vehicle {
         // Set variables
         //private int n = 0;
         //private int s = 0;
-        int i = 0;
+        i = 0;
+        this.n = n;
+        this.s = s;
+        
+        ID = generateID();
 
-        final Element[] TAGS = new Element[n];
-        final Element[] KEYS = new Element[s];
-        final Element[][] DV = new Element [s][n];
-        final Element[] DK = new Element[s];
+        TAGS = new ArrayList<>();
+        KEYS = new ArrayList<>();
+        DV = new ArrayList<>();
+        DK = new ArrayList<>();
         
         final ArrayList<String> HASHES = new ArrayList<>();
         
@@ -39,35 +51,36 @@ public class Vehicle {
         // Generate Fresh Tags
         log.console(ID + " generates fresh tags");
         
-        for (int x = 0; x < n; x++) {
-            TAGS[x] = ps.getMessage();
-            log.console(ID + " tag: " + TAGS[x].getValue());
+        for (int x = 0; x < this.n; x++) {
+            TAGS.add(ps.getMessage());
+            log.console(ID + " tag: " + TAGS.get(x).getValue());
         }
         
         // Fresh Keys
         log.console(ID + " generates fresh keys");
         
-        for (int x = 0; x < s; x++) {
-            KEYS[x] = ps.getMessage();
-            log.console (ID + " key: " + KEYS[x].getValue());
+        for (int x = 0; x < this.s; x++) {
+            KEYS.add(ps.getMessage());
+            log.console (ID + " key: " + KEYS.get(x).getValue());
         }
   
         // Opening Keys for Tags
         log.console(ID + " generates opening keys for tags");
         
-        for (int x = 0; x < s; x++) {
+        for (int x = 0; x < this.s; x++) {
             for (int y = 0; y < n; y++) {
-                DV[x][y] = ps.getKey();
-                log.console(ID + " tag opening key: " + DV[x][y].getValue());
+                int index = x * y + y;
+                DV.add(ps.getKey());
+                log.console(ID + " tag opening key: " + DV.get(index).getValue());
             }
         }
         
         // Opening Keys for Keys
         log.console(ID + " generate opening keys for keys");
         
-        for (int x = 0; x < s; x++) {
-            DK[x] = ps.getKey();
-            log.console(ID + " key opening key: "+ DK[x].getValue());
+        for (int x = 0; x < this.s; x++) {
+            DK.add(ps.getKey());
+            log.console(ID + " key opening key: "+ DK.get(x).getValue());
         }
         
         final RoundPackage RI = new RoundPackage();
@@ -79,14 +92,15 @@ public class Vehicle {
         RI.addRound(i);
         log.console(ID + " adds round " + i + " to round package");
         
-        for(int x = 0; x < n; x++) {
+        for(int x = 0; x < this.n; x++) {
             // ENCRYPTION MISSING HERE!!!
             //RI.addCommit(ps.commit(hash.Hash(TAGS[x], KEYS[i]), DV[i][x]));
-            RI.addCommit(ps.commit(TAGS[x], DV[i][x]));
-            log.console(ID + " adds commit of crypted " + TAGS[x].getValue() + " to round package");
+            int index = x * i + i;
+            RI.addCommit(ps.commit(TAGS.get(x), DV.get(index)));
+            log.console(ID + " adds commit of crypted " + TAGS.get(x).getValue() + " to round package");
         }
         
-        sp.putDrivingData(RI);
+        sp.putVehicleData(RI);
         log.console(ID + " send round package to service proivder");
     }
     
@@ -105,6 +119,28 @@ public class Vehicle {
     public String getId() {
         return ID;
     }
+    
+    public Element getRandomTag() {
+        Random rand = new Random();
+        return TAGS.get(rand.nextInt(this.n));
+    }
+    
+    public int calcCost(ArrayList<DrivingTuple> W, Log log) {
+        int c = 0;
+
+        // W ist eine Liste mit [Element tag, int cost]
+        // TAGS ist ein Array mit [Element tag]
+        
+        for (DrivingTuple dr : W) {
+            if(TAGS.contains(dr.tag)) {
+                log.console(dr.tag.getValue().toString());
+                c += dr.cost;
+            }   
+        }
+        
+        return c;
+    }
+    
      /*
     public void setRound(int i) {
         this.i = i;
