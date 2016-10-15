@@ -14,11 +14,12 @@ import java.util.Random;
  *
  * @author fh
  */
+
 public class ServiceProvider {
     
     private ArrayList<RoundPackage> rp = new ArrayList<>();
     private ArrayList<DrivingTuple> W = new ArrayList<>();
-    private ArrayList<CostTuple> Costs = new ArrayList<>();
+    private ArrayList<CostTuple> costs = new ArrayList<>();
     
     public void putVehicleData(RoundPackage RI) {
         rp.add(RI);
@@ -38,7 +39,7 @@ public class ServiceProvider {
 
     public void putCostData(String id, int c) {
         CostTuple ct = new CostTuple(id, c);
-        Costs.add(ct);
+        costs.add(ct);
     }
     
     public int getCheckMethod() {

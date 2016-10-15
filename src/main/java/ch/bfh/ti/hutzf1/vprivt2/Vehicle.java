@@ -15,7 +15,7 @@ import java.util.Random;
  * @author fh
  */
 
-public class Vehicle {
+public final class Vehicle {
     
     private final String ID;
     private final ArrayList<Element> TAGS;
@@ -27,8 +27,18 @@ public class Vehicle {
     private final int i;
     private final int n;
     private final int s;
+    
+    private final ServiceProvider sp;
+    private final PedersenScheme ps;
+    private final Hash hash;
+    private final Log log;
 
     public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash, Log log, int n, int s) {
+        
+        this.sp = sp;
+        this.ps = ps;
+        this.hash = hash;
+        this.log = log;
         
         // Set vehicles license plate
         ID = generateID();
@@ -47,6 +57,32 @@ public class Vehicle {
         
         //final ArrayList<String> HASHES = new ArrayList<>();
         
+        log.console(ID);
+        this.registration();
+    }
+    
+    private String generateID() {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVW0123456789";
+        int length = 8;
+        
+        Random rand = new Random();
+        StringBuilder buf = new StringBuilder();
+        for (int x = 0; x < length; x++) {
+            buf.append(chars.charAt(rand.nextInt(chars.length())));
+        }
+        return buf.toString();
+    }
+    
+    public Element getRandomTag() {
+        Random rand = new Random();
+        return TAGS.get(rand.nextInt(this.n));
+    }
+    
+    public Element getKey(int round) {
+        return KEYS.get(round);
+    }
+
+    private void registration() {
         // Start vehicle registration
         log.console(ID + " starts registration phase");
         
@@ -110,32 +146,7 @@ public class Vehicle {
         log.console(ID + " send round package to service provider");
     }
     
-    private String generateID() {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVW0123456789";
-        int length = 8;
-        
-        Random rand = new Random();
-        StringBuilder buf = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            buf.append(chars.charAt(rand.nextInt(chars.length())));
-        }
-        return buf.toString();
-    }
-    
-    public String getId() {
-        return ID;
-    }
-    
-    public Element getRandomTag() {
-        Random rand = new Random();
-        return TAGS.get(rand.nextInt(this.n));
-    }
-    
-    public Element getKey(int round) {
-        return KEYS.get(round);
-    }
-
-    public void drive(ServiceProvider sp, Log log) {
+    public void drive() {
         Location currentLocation = new Location();
         Date timestamp = new Date();
         Element randomTag = this.getRandomTag();
@@ -144,7 +155,7 @@ public class Vehicle {
         log.console(ID + " value of a toll station is " + toll);
     }
 
-    public void calcCost(ServiceProvider sp, Log log) {
+    public void reconciliation() {
         int c = 0;
         
         ArrayList<DrivingTuple> W = sp.getAllTags();
@@ -158,6 +169,9 @@ public class Vehicle {
         }
         log.console(ID + " calculated " + c);
         sp.putCostData(ID, c);
+        
+        int bi = sp.getCheckMethod();
+        log.console(ID + " bi is: " + Integer.toString(bi)); 
     }
 
     

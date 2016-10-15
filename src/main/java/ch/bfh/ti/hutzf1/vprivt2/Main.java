@@ -46,7 +46,6 @@ public class Main {
         for (int x = 0; i < numberOfVehicles; i++) {
             Vehicle newVehicle = new Vehicle(sp, ps, hash, log, n, s);
             vehicles.add(newVehicle);
-            log.console(newVehicle.getId());
         }
         
         log.console(" -- END REGISTRATION PHASE -- ");
@@ -59,7 +58,7 @@ public class Main {
         
         for (Vehicle vehicle : vehicles) {
             for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
-                vehicle.drive(sp, log);
+                vehicle.drive();
             }
         }
         
@@ -72,14 +71,8 @@ public class Main {
         log.console(" -- START RECONCILIATION PHASE -- ");
         
         for (Vehicle vehicle : vehicles) {
-            
-            vehicle.calcCost(sp, log);
-            
-            
-            
-            int bi = sp.getCheckMethod();
-            
-            log.console(vehicle.getId() + " bi is: " + Integer.toString(bi)); 
+            vehicle.reconciliation();
+
             
             /*
             // Vehicle sends to Service Provider
@@ -100,9 +93,8 @@ public class Main {
             */
             
             
-            log.console(" -- END RECONCILIATION PHASE -- ");
-            
-        }        
+        }   
+    log.console(" -- END RECONCILIATION PHASE -- ");
     }
     
 }
