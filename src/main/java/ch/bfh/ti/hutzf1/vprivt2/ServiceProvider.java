@@ -16,14 +16,13 @@ import java.util.Random;
  */
 public class ServiceProvider {
     
+    private ArrayList<RoundPackage> rp = new ArrayList<>();
     private ArrayList<DrivingTuple> W = new ArrayList<>();
     private ArrayList<CostTuple> Costs = new ArrayList<>();
     
     public void putVehicleData(RoundPackage RI) {
-        
+        rp.add(RI);
     }
-    
-    
     
     public int putDrivingData(Element tag, Location location, Date timestamp) {
         Random rand = new Random();
@@ -40,6 +39,19 @@ public class ServiceProvider {
     public void putCostData(String id, int c) {
         CostTuple ct = new CostTuple(id, c);
         Costs.add(ct);
+    }
+    
+    public int getCheckMethod() {
+        Random rand = new Random();
+        return rand.nextInt(2);
+    }
+    
+    public int calculate0(String id, Element key, ArrayList<Element> dc) {
+        return 0;
+    }
+    
+    public int calculate1(String id, ArrayList<Element> dv, Element Di) {
+        return 0;
     }
     
     

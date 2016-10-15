@@ -12,11 +12,10 @@ import java.util.ArrayList;
  *
  * @author fh
  */
-public class RoundPackage {
+public class ReconciliationPackage {
     public String id;
     public int i;
-    public Element key;
-    public ArrayList<Element> hashes = new ArrayList<>();
+    public ArrayList<CostTuple> U = new ArrayList<>();
     
     public void setId(String id) {
         this.id = id;
@@ -26,11 +25,7 @@ public class RoundPackage {
         this.i = i;
     }
     
-    public void setKey(Element key) {
-        this.key = key;
-    }
-    
-    public void addCommit(Element commit) {
-        hashes.add(commit);
-    }
+    public void addU(ArrayList<CostTuple> U) {
+        this.U = U;
+    }   
 }

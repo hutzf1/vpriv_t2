@@ -7,6 +7,7 @@ package ch.bfh.ti.hutzf1.vprivt2;
 
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -21,6 +22,7 @@ public class Vehicle {
     private final ArrayList<Element> KEYS;
     private final ArrayList<Element> DV;
     private final ArrayList<Element> DK;
+    private final ArrayList<Element> DC;
     
     private final int i;
     private final int n;
@@ -29,23 +31,23 @@ public class Vehicle {
     public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash, Log log, int n, int s) {
         
         // Set vehicles license plate
+        ID = generateID();
         
-        // Set variables
-        //private int n = 0;
-        //private int s = 0;
+        // Set parameter
         i = 0;
         this.n = n;
         this.s = s;
         
-        ID = generateID();
-
+        // Set tags, keys, opening keys
         TAGS = new ArrayList<>();
         KEYS = new ArrayList<>();
         DV = new ArrayList<>();
         DK = new ArrayList<>();
+        DC = new ArrayList<>();
         
-        final ArrayList<String> HASHES = new ArrayList<>();
+        //final ArrayList<String> HASHES = new ArrayList<>();
         
+        // Start vehicle registration
         log.console(ID + " starts registration phase");
         
         // Generate Fresh Tags
@@ -83,25 +85,29 @@ public class Vehicle {
             log.console(ID + " key opening key: "+ DK.get(x).getValue());
         }
         
+        // Generate round package to send data to service provider
         final RoundPackage RI = new RoundPackage();
         log.console(ID + " generates round package");
         
-        RI.addId(ID);
+        RI.setId(ID);
         log.console(ID + " adds ID " + ID + " to round package");
         
-        RI.addRound(i);
+        RI.setRound(i);
         log.console(ID + " adds round " + i + " to round package");
+        
+        RI.setKey(ps.commit(KEYS.get(i), DK.get(i)));
+        log.console(ID + " adds key " + KEYS.get(i) + " to round package");
         
         for(int x = 0; x < this.n; x++) {
             // ENCRYPTION MISSING HERE!!!
             //RI.addCommit(ps.commit(hash.Hash(TAGS[x], KEYS[i]), DV[i][x]));
             int index = x * i + i;
-            RI.addCommit(ps.commit(TAGS.get(x), DV.get(index)));
+            RI.addCommit(ps.commit(hash.getHash(TAGS.get(x), DK.get(i)), DV.get(index)));
             log.console(ID + " adds commit of crypted " + TAGS.get(x).getValue() + " to round package");
         }
         
         sp.putVehicleData(RI);
-        log.console(ID + " send round package to service proivder");
+        log.console(ID + " send round package to service provider");
     }
     
     private String generateID() {
@@ -125,21 +131,35 @@ public class Vehicle {
         return TAGS.get(rand.nextInt(this.n));
     }
     
-    public int calcCost(ArrayList<DrivingTuple> W, Log log) {
-        int c = 0;
+    public Element getKey(int round) {
+        return KEYS.get(round);
+    }
 
-        // W ist eine Liste mit [Element tag, int cost]
-        // TAGS ist ein Array mit [Element tag]
+    public void drive(ServiceProvider sp, Log log) {
+        Location currentLocation = new Location();
+        Date timestamp = new Date();
+        Element randomTag = this.getRandomTag();
+        int toll = sp.putDrivingData(randomTag, currentLocation, timestamp);
+        log.console(ID + " is driving. Tag " + randomTag.getValue() + " (" + currentLocation.LATIDUDE + ", " + currentLocation.LONGITUDE + ") - " + timestamp);
+        log.console(ID + " value of a toll station is " + toll);
+    }
+
+    public void calcCost(ServiceProvider sp, Log log) {
+        int c = 0;
         
+        ArrayList<DrivingTuple> W = sp.getAllTags();
+
+        log.console(ID + " is calculating cost...");
         for (DrivingTuple dr : W) {
             if(TAGS.contains(dr.tag)) {
                 log.console(dr.tag.getValue().toString());
                 c += dr.cost;
             }   
         }
-        
-        return c;
+        log.console(ID + " calculated " + c);
+        sp.putCostData(ID, c);
     }
+
     
      /*
     public void setRound(int i) {

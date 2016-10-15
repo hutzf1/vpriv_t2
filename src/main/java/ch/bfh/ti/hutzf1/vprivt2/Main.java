@@ -35,7 +35,11 @@ public class Main {
         int i = round-1; // round (i element of [1; s])
         Random rand = new Random();
         
-        log.console("Start Registration Phase");
+        ////////////////////////
+        // REGISTRATION PHASE //
+        ////////////////////////
+        
+        log.console(" -- START REGISTRATION PHASE -- ");
         
         // Generate Vehicles
         ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -45,46 +49,59 @@ public class Main {
             log.console(newVehicle.getId());
         }
         
-        ////////////////////////
-        // REGISTRATION PHASE //
-        ////////////////////////
-        
-        // Registration is handled by each vehicle.
-        // ENCRYPTION MISSING HERE!!!
-        
-        log.console("End Registration Phase");
+        log.console(" -- END REGISTRATION PHASE -- ");
         
         ///////////////////
         // DRIVING PHASE //
         ///////////////////
         
-        log.console("Start Driving Phase");
+        log.console(" -- START DRIVING PHASE -- ");
         
         for (Vehicle vehicle : vehicles) {
-            // Vehicle is driving, so how to do?
             for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
-                Location currentLocation = new Location();
-                Date timestamp = new Date();
-                Element randomTag = vehicle.getRandomTag();
-                int toll = sp.putDrivingData(randomTag, currentLocation, timestamp);
-                log.console(vehicle.getId() + " is driving. Tag " + randomTag.getValue() + " (" + currentLocation.LATIDUDE + ", " + currentLocation.LONGITUDE + ") - " + timestamp);
-                log.console(vehicle.getId() + " value of a toll station is " + toll);
+                vehicle.drive(sp, log);
             }
         }
         
-        log.console("End of Driving Phase");
+        log.console(" -- END DRIVING PHASE -- ");
 
         //////////////////////////
         // RECONCILIATION PHASE //
         //////////////////////////
         
-        log.console("Start Reconciliation Phase");
+        log.console(" -- START RECONCILIATION PHASE -- ");
         
         for (Vehicle vehicle : vehicles) {
-            log.console(vehicle.getId() + " is calculating cost...");
-            int c = vehicle.calcCost(sp.getAllTags(), log);
-            log.console(vehicle.getId() + " calculated " + c);
-            //sp.putCostData(vehicle.getId(), c);
+            
+            vehicle.calcCost(sp, log);
+            
+            
+            
+            int bi = sp.getCheckMethod();
+            
+            log.console(vehicle.getId() + " bi is: " + Integer.toString(bi)); 
+            
+            /*
+            // Vehicle sends to Service Provider
+            if(bi == 0){
+                sp.calculate0(vehicle.getId(), vehicle.getKey(i), );
+                Bi.add(DK[i]);
+                for(int y = 0; y < m; y++){
+                    Bi.add(DC[i][y]);
+                }      
+            }
+            else if(bi == 1){
+                for(int y = 0; y < n; y++){
+                    Bi.add(DV[i][y]);
+                }
+                String Di = OpeningKey();
+                Bi.add(Di);
+            }
+            */
+            
+            
+            log.console(" -- END RECONCILIATION PHASE -- ");
+            
         }        
     }
     

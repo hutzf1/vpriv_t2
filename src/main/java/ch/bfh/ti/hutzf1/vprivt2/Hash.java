@@ -20,8 +20,9 @@ import java.math.BigInteger;
  */
 public class Hash {
     
-    public Element Hash(Element message, Element key) {
+    public Element getHash(Element message, Element key) {
 
+            /*
             StringMonoid stringSet = StringMonoid.getInstance(Alphabet.LOWER_CASE);
             //Element<String> stringElement = stringSet.getElement(message);
 
@@ -35,9 +36,12 @@ public class Hash {
             FixedByteArrayHashingScheme scheme = FixedByteArrayHashingScheme.getInstance(messageSpace);
 
             Element hash = scheme.hash(tuple);
-            //Element result = scheme.check(message, hash);
-            
+            //Element result = scheme.check(message, hash);            
+
             return hash;
+            */  
+            
+            return message;
     }
     
 }
