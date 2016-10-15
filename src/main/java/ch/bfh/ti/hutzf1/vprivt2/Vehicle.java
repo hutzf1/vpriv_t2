@@ -157,8 +157,11 @@ public final class Vehicle {
 
     public void reconciliation() {
         int c = 0;
+        int bi;
+        Element Di = ps.getOpeningKey();
         
         ArrayList<DrivingTuple> W = sp.getAllTags();
+        
 
         log.console(ID + " is calculating cost...");
         for (DrivingTuple dr : W) {
@@ -170,18 +173,15 @@ public final class Vehicle {
         log.console(ID + " calculated " + c);
         sp.putCostData(ID, c);
         
-        int bi = sp.getCheckMethod();
+        bi = sp.getCheckMethod();
         log.console(ID + " bi is: " + Integer.toString(bi)); 
+        
+        // Vehicle sends to Service Provider
+        if(bi == 0){
+            sp.calculate0(ID, KEYS.get(i), DC);  
+        }
+        else if(bi == 1){
+            sp.calculate1(ID, DV, Di);
+        }
     }
-
-    
-     /*
-    public void setRound(int i) {
-        this.i = i;
-    }*/
-    
-    /*public String getDrivingTag() {
-        return TAGS[];
-    }*/
-    
 }

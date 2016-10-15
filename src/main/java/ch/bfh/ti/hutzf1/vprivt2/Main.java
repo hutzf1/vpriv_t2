@@ -71,28 +71,7 @@ public class Main {
         log.console(" -- START RECONCILIATION PHASE -- ");
         
         for (Vehicle vehicle : vehicles) {
-            vehicle.reconciliation();
-
-            
-            /*
-            // Vehicle sends to Service Provider
-            if(bi == 0){
-                sp.calculate0(vehicle.getId(), vehicle.getKey(i), );
-                Bi.add(DK[i]);
-                for(int y = 0; y < m; y++){
-                    Bi.add(DC[i][y]);
-                }      
-            }
-            else if(bi == 1){
-                for(int y = 0; y < n; y++){
-                    Bi.add(DV[i][y]);
-                }
-                String Di = OpeningKey();
-                Bi.add(Di);
-            }
-            */
-            
-            
+            vehicle.reconciliation();            
         }   
     log.console(" -- END RECONCILIATION PHASE -- ");
     }
