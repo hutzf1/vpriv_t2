@@ -27,10 +27,10 @@ public class Main {
         Log log = new Log();
 
         // Variables
-        int numberOfVehicles = 10;
-        int n = 20; // number of new tags
-        int s = 10; // number of new keys
-        int maxToll = 50;
+        int numberOfVehicles = 2;
+        int n = 5; // number of new tags
+        int s = 2; // number of new keys
+        int maxToll = n;
         int round = 1;
         int i = round-1; // round (i element of [1; s])
         Random rand = new Random();

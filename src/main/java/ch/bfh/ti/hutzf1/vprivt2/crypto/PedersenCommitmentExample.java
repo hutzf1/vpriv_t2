@@ -31,6 +31,8 @@ public class PedersenCommitmentExample {
 		// Create cyclic group G_q (modulo 167)
 		CyclicGroup cyclicGroup = GStarModSafePrime.getInstance(167);
 
+                /*
+                
 		// Create commitment scheme to be used
 		PedersenCommitmentScheme commitmentScheme = PedersenCommitmentScheme.getInstance(cyclicGroup);
 
@@ -40,17 +42,25 @@ public class PedersenCommitmentExample {
 
 		// Create commitment
 		Element commitment = commitmentScheme.commit(message, randomization);
-
+                
 		// Decommit
 		BooleanElement result = commitmentScheme.decommit(message, randomization, commitment);
+                
+                */
 
 		Example.printLine("Cylic Group", cyclicGroup);
+                
+                /*
+                
 		Example.printLine("Message Generator", commitmentScheme.getMessageGenerator());
 		Example.printLine("Randomization Generator", commitmentScheme.getRandomizationGenerator());
 		Example.printLine("Message", message);
 		Example.printLine("Randomization", randomization);
 		Example.printLine("Commitment", commitment);
 		Example.printLine("Result", result);
+                
+                */
+                
 	}
 
 /*	public static void example2() {

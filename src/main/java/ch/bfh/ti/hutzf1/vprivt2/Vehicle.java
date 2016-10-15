@@ -52,7 +52,7 @@ public class Vehicle {
         log.console(ID + " generates fresh tags");
         
         for (int x = 0; x < this.n; x++) {
-            TAGS.add(ps.getMessage());
+            TAGS.add(ps.getTag());
             log.console(ID + " tag: " + TAGS.get(x).getValue());
         }
         
@@ -60,7 +60,7 @@ public class Vehicle {
         log.console(ID + " generates fresh keys");
         
         for (int x = 0; x < this.s; x++) {
-            KEYS.add(ps.getMessage());
+            KEYS.add(ps.getKey());
             log.console (ID + " key: " + KEYS.get(x).getValue());
         }
   
@@ -70,7 +70,7 @@ public class Vehicle {
         for (int x = 0; x < this.s; x++) {
             for (int y = 0; y < n; y++) {
                 int index = x * y + y;
-                DV.add(ps.getKey());
+                DV.add(ps.getOpeningKey());
                 log.console(ID + " tag opening key: " + DV.get(index).getValue());
             }
         }
@@ -79,7 +79,7 @@ public class Vehicle {
         log.console(ID + " generate opening keys for keys");
         
         for (int x = 0; x < this.s; x++) {
-            DK.add(ps.getKey());
+            DK.add(ps.getOpeningKey());
             log.console(ID + " key opening key: "+ DK.get(x).getValue());
         }
         

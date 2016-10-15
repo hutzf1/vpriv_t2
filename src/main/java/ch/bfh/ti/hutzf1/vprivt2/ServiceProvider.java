@@ -17,10 +17,13 @@ import java.util.Random;
 public class ServiceProvider {
     
     private ArrayList<DrivingTuple> W = new ArrayList<>();
+    private ArrayList<CostTuple> Costs = new ArrayList<>();
     
     public void putVehicleData(RoundPackage RI) {
         
     }
+    
+    
     
     public int putDrivingData(Element tag, Location location, Date timestamp) {
         Random rand = new Random();
@@ -34,7 +37,10 @@ public class ServiceProvider {
         return W;
     }
 
-    void putCostData(String id, int c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void putCostData(String id, int c) {
+        CostTuple ct = new CostTuple(id, c);
+        Costs.add(ct);
     }
+    
+    
 }
