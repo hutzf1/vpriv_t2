@@ -5,7 +5,9 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import ch.bfh.unicrypt.math.algebra.general.classes.BooleanElement;
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -95,24 +97,41 @@ public class ServiceProvider {
     
     public int calculate1(String id, ArrayList<Element> dv, Element Di) {
         log.console(id + " calculating by service provider");
-        //RoundPackage thisrp;
-        PermutatedPackage thispp;
-        /*for (RoundPackage r : RP){
+        
+        RP.contains(id);
+        
+        RoundPackage thisrp = null;
+        //PermutatedPackage thispp;
+        for (RoundPackage r : RP){
             if(r.id == id) {
                 thisrp = r;
                 log.console("r: " + r.id);
             }
-        }*/
-        for (PermutatedPackage p : PP){
+        }
+        
+        int x = 0;
+        
+        for (DrivingTuple dr : W) {
+            for (Element e : dv) {
+                log.console(ps.decommit(dr.tag, e, thisrp.hashes.get(x)).getValue().toString());
+                x++;
+            }
+        }
+
+        
+        /*for (PermutatedPackage p : PP){
             if(p.id == id) {
                 thispp = p;
                 log.console("p: " + p.id);
             }
-        }
-        for (DrivingTuple dr : W){
+        }*/
+        
+        /*for (DrivingTuple dr : W){
             Element w = dr.tag;
+            ps.decommit(w, w, Di)
             //thispp.dr.contains(hash.getHash(w, ))
-        }
+        }*/
+        
         
         
         /*for (Element e : dv) {
