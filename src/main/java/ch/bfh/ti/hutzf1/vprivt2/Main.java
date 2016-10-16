@@ -21,10 +21,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        ServiceProvider sp = new ServiceProvider();
         PedersenScheme ps = new PedersenScheme();
-        Hash hash = new Hash();
         Log log = new Log();
+        ServiceProvider sp = new ServiceProvider(ps, log);
+        Hash hash = new Hash();
 
         // Variables
         int numberOfVehicles = 2;

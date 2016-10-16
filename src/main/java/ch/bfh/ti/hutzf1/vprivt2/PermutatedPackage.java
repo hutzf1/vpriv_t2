@@ -6,19 +6,24 @@
 package ch.bfh.ti.hutzf1.vprivt2;
 
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
+import java.util.ArrayList;
 
 /**
  *
  * @author fh
  */
-
-public class DrivingTuple {
-    public Element tag;
-    public Element cost;
+public class PermutatedPackage {
+    String id;
+    ArrayList<DrivingTuple> dr = new ArrayList<>();
     
-    public DrivingTuple(Element tag, Element cost) {
-        this.tag = tag;
-        this.cost = cost;
-       
+    public void setId(String id) {
+        this.id = id;
     }
+    
+    public void addDrivintTuple(DrivingTuple dr) {
+        this.dr.add(dr);
+    }
+
+   
+    
 }

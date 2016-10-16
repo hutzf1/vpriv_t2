@@ -51,6 +51,10 @@ public class PedersenScheme {
         return randomization;
     }
     
+    public Element getElement(int value) {
+        return COMMITMENTSCHEME.getMessageSpace().getElement(value);
+    }
+    
     public Element commit(Element message, Element key) {
         Element commitment = COMMITMENTSCHEME.commit(message, key);
         return commitment;

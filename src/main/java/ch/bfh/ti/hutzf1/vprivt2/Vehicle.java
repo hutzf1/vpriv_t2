@@ -161,19 +161,43 @@ public final class Vehicle {
         Element Di = ps.getOpeningKey();
         
         ArrayList<DrivingTuple> W = sp.getAllTags();
+        PermutatedPackage Ui = new PermutatedPackage();
         
-
         log.console(ID + " is calculating cost...");
         for (DrivingTuple dr : W) {
             if(TAGS.contains(dr.tag)) {
                 log.console(dr.tag.getValue().toString());
-                c += dr.cost;
+                c += dr.cost.convertToBigInteger().intValue();
             }   
         }
         log.console(ID + " calculated " + c);
         sp.putCostData(ID, c);
         
-        bi = sp.getCheckMethod();
+        // Send permutated data to service provider
+        // Permute todo!
+        
+        // Opening Keys for Costs
+        log.console(ID + " generates opening keys for costs");
+        
+        for (int x = 0; x <= i; x++) {
+            for (int y = 0; y < W.size(); y++) {
+                int index = x * y + y;
+                DC.add(ps.getOpeningKey());
+                log.console(ID + " tag opening key: " + DC.get(index).getValue());
+            }
+        }
+        
+        log.console(ID + " is permutating W and send the package to service provider");
+        int m = 0;
+        Ui.setId(ID);
+        for (DrivingTuple dr : W) {
+            Ui.addDrivintTuple(new DrivingTuple(hash.getHash(dr.tag, KEYS.get(i)), ps.commit(dr.cost, DC.get(m))));
+            m++; 
+        }
+        sp.putPermutatedPackage(Ui);
+        
+        //bi = sp.getCheckMethod();
+        bi = 0;
         log.console(ID + " bi is: " + Integer.toString(bi)); 
         
         // Vehicle sends to Service Provider
