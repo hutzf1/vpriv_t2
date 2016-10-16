@@ -23,8 +23,8 @@ public class Main {
         
         PedersenScheme ps = new PedersenScheme();
         Log log = new Log();
-        ServiceProvider sp = new ServiceProvider(ps, log);
         Hash hash = new Hash();
+        ServiceProvider sp = new ServiceProvider(ps, log, hash);
 
         // Variables
         int numberOfVehicles = 2;

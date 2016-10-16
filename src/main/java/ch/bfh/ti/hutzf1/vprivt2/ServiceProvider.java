@@ -20,14 +20,16 @@ public class ServiceProvider {
     
     private final PedersenScheme ps;
     private final Log log;
+    private final Hash hash;
     private final ArrayList<RoundPackage> RP = new ArrayList<>();
     private final ArrayList<DrivingTuple> W = new ArrayList<>();
     private final ArrayList<CostTuple> COSTS = new ArrayList<>();
     private final ArrayList<PermutatedPackage> PP = new ArrayList<>();
     
-    public ServiceProvider(PedersenScheme ps, Log log){
+    public ServiceProvider(PedersenScheme ps, Log log, Hash hash){
         this.ps = ps;
         this.log = log;
+        this.hash = hash;
     }
     
     public void putVehicleData(RoundPackage RI) {
@@ -93,14 +95,23 @@ public class ServiceProvider {
     
     public int calculate1(String id, ArrayList<Element> dv, Element Di) {
         log.console(id + " calculating by service provider");
-        for (RoundPackage r : RP){
-            log.console("r: " + r.id);
+        //RoundPackage thisrp;
+        PermutatedPackage thispp;
+        /*for (RoundPackage r : RP){
             if(r.id == id) {
-                for (Element e : dv) {
-                    // TODO
-                    log.console(e.convertToString());
-                }
+                thisrp = r;
+                log.console("r: " + r.id);
             }
+        }*/
+        for (PermutatedPackage p : PP){
+            if(p.id == id) {
+                thispp = p;
+                log.console("p: " + p.id);
+            }
+        }
+        for (DrivingTuple dr : W){
+            Element w = dr.tag;
+            //thispp.dr.contains(hash.getHash(w, ))
         }
         
         

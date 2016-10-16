@@ -197,7 +197,7 @@ public final class Vehicle {
         sp.putPermutatedPackage(Ui);
         
         //bi = sp.getCheckMethod();
-        bi = 0;
+        bi = 1;
         log.console(ID + " bi is: " + Integer.toString(bi)); 
         
         // Vehicle sends to Service Provider
