@@ -111,12 +111,12 @@ public class ServiceProvider {
         
         int x = 0;
         
-        for (DrivingTuple dr : W) {
+        /*for (DrivingTuple dr : W) {
             for (Element e : dv) {
                 log.console(ps.decommit(dr.tag, e, thisrp.hashes.get(x)).getValue().toString());
                 x++;
             }
-        }
+        }*/
 
         
         /*for (PermutatedPackage p : PP){
