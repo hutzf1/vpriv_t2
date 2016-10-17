@@ -28,8 +28,8 @@ public class Main {
 
         // Variables
         int numberOfVehicles = 2;
-        int n = 5; // number of new tags
-        int s = 2; // number of new keys
+        int n = 2; // number of new tags
+        int s = 1; // number of new keys
         int maxToll = n;
         int round = 1;
         int i = round-1; // round (i element of [1; s])

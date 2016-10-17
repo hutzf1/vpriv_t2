@@ -97,8 +97,50 @@ public class ServiceProvider {
     
     public int calculate1(String id, ArrayList<Element> dv, Element Di) {
         log.console(id + " calculating by service provider");
+        log.console("-----------------------------------");
+        log.console("-----------------------------------");
         
-        RP.contains(id);
+        // SP has: License Plate (id), round (i), commitment of hased tags, all Tags of Driving Phase (unhashed, uncommited)
+        // SP recieves: License Plate (id), Opening Keys for Tags (DV), Opening key for costs (Di), All tags of Driving Phase (permuted and commitment of)
+        // for bi = 1, SP needs: 
+        
+        PermutatedPackage thispp = null;
+        RoundPackage thisrp = null;
+        for (PermutatedPackage pp : PP){
+            if(pp.id == id) {
+                thispp = pp;
+                log.console("pp: " + thispp.id);
+            }
+        }
+        for (RoundPackage rp : RP){
+            if(rp.id == id) {
+                thisrp = rp;
+                log.console("rp: " + thisrp.id);
+            }
+        }
+        
+        for (DrivingTuple dr : thispp.dr) {
+            for(Element v : dv) {
+                for (Element e : thisrp.hashes) {
+                    // habe einen comiteten hash aus roundpackage als e
+                    // habe einen hash in dr
+                    log.console(ps.commit(dr.tag, v).getValue().toString());
+                    log.console(e.getValue().toString());
+                    
+                    if(ps.decommit(dr.tag, v, e).getValue()){
+                        log.console("true");
+                    }
+                }
+            }
+        }
+        
+        
+        
+        log.console("-----------------------------------");
+        log.console("-----------------------------------");
+        
+        
+        /*RP.contains(id);
         
         RoundPackage thisrp = null;
         //PermutatedPackage thispp;
@@ -109,7 +151,7 @@ public class ServiceProvider {
             }
         }
         
-        int x = 0;
+        int x = 0;*/
         
         /*for (DrivingTuple dr : W) {
             for (Element e : dv) {
