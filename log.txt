@@ -1,0 +1,53 @@
+ -- START REGISTRATION PHASE -- 
+FFNTGS86
+FFNTGS86 starts registration phase
+FFNTGS86 generates fresh tags
+FFNTGS86 tag: 383
+FFNTGS86 tag: 737
+FFNTGS86 tag: 705
+FFNTGS86 tag: 1151
+FFNTGS86 generates fresh keys
+FFNTGS86 key: 393
+FFNTGS86 generates opening keys for tags
+FFNTGS86 tag opening key: 713
+FFNTGS86 tag opening key: 859
+FFNTGS86 tag opening key: 1254
+FFNTGS86 tag opening key: 708
+FFNTGS86 generate opening keys for keys
+FFNTGS86 key opening key: 81
+FFNTGS86 generates round package
+FFNTGS86 adds ID FFNTGS86 to round package
+FFNTGS86 adds round 0 to round package
+FFNTGS86 adds key ZModElement[393] to round package
+FFNTGS86 adds commit of crypted 383 to round package
+FFNTGS86 adds commit of crypted 737 to round package
+FFNTGS86 adds commit of crypted 705 to round package
+FFNTGS86 adds commit of crypted 1151 to round package
+FFNTGS86 send round package to service provider
+ -- END REGISTRATION PHASE -- 
+ -- START DRIVING PHASE -- 
+FFNTGS86 is driving. Tag 737 (155, 76) - Sat Oct 22 13:45:30 UTC 2016
+FFNTGS86 value of a toll station is 6
+FFNTGS86 is driving. Tag 383 (87, 21) - Sat Oct 22 13:45:30 UTC 2016
+FFNTGS86 value of a toll station is 8
+FFNTGS86 is driving. Tag 705 (109, 61) - Sat Oct 22 13:45:30 UTC 2016
+FFNTGS86 value of a toll station is 0
+ -- END DRIVING PHASE -- 
+ -- START RECONCILIATION PHASE -- 
+FFNTGS86 is calculating cost...
+FFNTGS86 calculated 14
+FFNTGS86 generates opening keys for costs
+FFNTGS86 tag opening key: 671
+FFNTGS86 tag opening key: 242
+FFNTGS86 tag opening key: 1011
+FFNTGS86 is permutating W and send the package to service provider
+FFNTGS86 bi is: 1
+FFNTGS86 calculating by service provider
+-----------------------------------
+-----------------------------------
+pp: FFNTGS86
+rp: FFNTGS86
+-----------------------------------
+-----------------------------------
+FFNTGS86 service provider calculated 0
+ -- END RECONCILIATION PHASE -- 

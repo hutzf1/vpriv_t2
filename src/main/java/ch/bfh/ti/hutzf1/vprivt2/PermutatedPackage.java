@@ -5,13 +5,13 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
-import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
 import java.util.ArrayList;
 
 /**
  *
  * @author fh
  */
+
 public class PermutatedPackage {
     String id;
     ArrayList<DrivingTuple> dr = new ArrayList<>();
@@ -23,7 +23,4 @@ public class PermutatedPackage {
     public void addDrivintTuple(DrivingTuple dr) {
         this.dr.add(dr);
     }
-
-   
-    
 }

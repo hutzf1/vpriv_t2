@@ -64,128 +64,105 @@ public class ServiceProvider {
         return rand.nextInt(2);
     }
     
-    public int calculate0(String id, Element key, ArrayList<Element> dc) {
-        log.console("-----------------------------------");
-        log.console("BI = 0, Service Provider calculates");
-        log.console("-----------------------------------");
-        for (DrivingTuple dt : W){
-            Element tag = ps.commit(dt.tag, key);
-            
+    public int calculate0(String id, Element key, ArrayList<Element> dc) throws IOException {
+        log.file("-----------------------------------");
+        log.file("BI = 0, Service Provider calculates");
+        log.file("-----------------------------------");
+        
+        PermutatedPackage vehiclesPackage = null;
+        
+        for (PermutatedPackage pp : PP) {
+            if(pp.id.equals(id)) {
+                vehiclesPackage = pp;
+                log.console("Package: " + vehiclesPackage.id);
+            }
         }
         
-        /*String ki = ps. Decommit(DK[i],Ri.get(1));
-        int b = 2;
-        for (Map.Entry<String, Integer> entry : W.entrySet())
-        {
-            String value = entry.getValue().toString();
-            int c = Integer.parseInt(Decommit(Bi.get(b), value));
-
-            Log(Integer.toString(c));
-
-            String key = entry.getKey();
-
-            if (Ui.containsKey(F(ki,key)) && Ui.get(F(ki,key)).equals(value)) {
-                Csp += c;
+        /*RoundPackage vehiclesRound = null;
+        
+        for (RoundPackage rp : RP) {
+            if(rp.id == id) {
+                vehiclesRound = rp;
+                log.console("Package: " + vehiclesPackage.id);
             }
-
-            b++;
         }*/
-        log.console("-----------------------------------");
-        log.console("-----------------------------------");
-        return 0;
+         
+        int sum = 0;
+        
+        for (DrivingTuple dt : W) {
+            int m = 0;
+            for (DrivingTuple vehicleDt : vehiclesPackage.dr) {
+                if(ps.commit(dt.cost, dc.get(m)).equals(vehicleDt.cost)) {
+                if(hash.getHash(dt.tag, key).equals(vehicleDt.tag)) {
+                    //if(ps.commit(dt.cost, dc.get(m)).equals(vehicleDt.cost)) {
+                        log.console(ps.commit(dt.cost, dc.get(m)).toString());
+                        log.console(vehicleDt.cost.toString());
+                        sum = sum + dt.cost.convertToBigInteger().intValue();
+                    }
+                }
+                m++;
+            }
+        }
+        
+        // Ich erhalte
+        // id vom Fahrzeug
+        // dki vom Fahrzeug
+        // dci1 - dcim vom Fahrzeug
+        //
+        // Ich habe
+        // Ui mit fki(w), c(dci)
+        
+        log.file("-----------------------------------");
+        log.file("-----------------------------------");
+        return sum;
     }
     
-    public int calculate1(String id, ArrayList<Element> dv, Element Di) {
-        log.console(id + " calculating by service provider");
-        log.console("-----------------------------------");
-        log.console("-----------------------------------");
+    public int calculate1(String id, ArrayList<Element> dv, Element Di) throws IOException {
+        log.file(id + " calculating by service provider");
+        log.file("-----------------------------------");
+        log.file("-----------------------------------");
         
         // SP has: License Plate (id), round (i), commitment of hased tags, all Tags of Driving Phase (unhashed, uncommited)
         // SP recieves: License Plate (id), Opening Keys for Tags (DV), Opening key for costs (Di), All tags of Driving Phase (permuted and commitment of)
-        // for bi = 1, SP needs: 
+        // for bi = 1, SP needs:
         
         PermutatedPackage thispp = null;
         RoundPackage thisrp = null;
+        
         for (PermutatedPackage pp : PP){
-            if(pp.id == id) {
+            if(pp.id.equals(id)) {
                 thispp = pp;
-                log.console("pp: " + thispp.id);
+                log.file("pp: " + thispp.id);
             }
         }
+        
         for (RoundPackage rp : RP){
-            if(rp.id == id) {
+            if(rp.id.equals(id)) {
                 thisrp = rp;
-                log.console("rp: " + thisrp.id);
+                log.file("rp: " + thisrp.id);
             }
         }
         
-        for (DrivingTuple dr : thispp.dr) {
-            for(Element v : dv) {
-                for (Element e : thisrp.hashes) {
-                    // habe einen comiteten hash aus roundpackage als e
-                    // habe einen hash in dr
-                    log.console(ps.commit(dr.tag, v).getValue().toString());
-                    log.console(e.getValue().toString());
-                    
-                    if(ps.decommit(dr.tag, v, e).getValue()){
-                        log.console("true");
-                    }
-                }
+        int sum = 0;
+        
+        log.console(String.valueOf(thispp.dr.size()));
+        
+        for (DrivingTuple d1 : thispp.dr) {
+            int i = 0;
+            for (Element e : thisrp.hashes) {
+                log.console(e.toString());
+                log.console(ps.commit(d1.tag, dv.get(i)).toString());
+                log.console(String.valueOf(i));
+                i++;
             }
         }
-        
-        
-        
-        log.console("-----------------------------------");
-        log.console("-----------------------------------");
-        
-        
-        /*RP.contains(id);
-        
-        RoundPackage thisrp = null;
-        //PermutatedPackage thispp;
-        for (RoundPackage r : RP){
-            if(r.id == id) {
-                thisrp = r;
-                log.console("r: " + r.id);
-            }
-        }
-        
-        int x = 0;*/
-        
-        /*for (DrivingTuple dr : W) {
-            for (Element e : dv) {
-                log.console(ps.decommit(dr.tag, e, thisrp.hashes.get(x)).getValue().toString());
-                x++;
-            }
-        }*/
 
         
-        /*for (PermutatedPackage p : PP){
-            if(p.id == id) {
-                thispp = p;
-                log.console("p: " + p.id);
-            }
-        }*/
         
-        /*for (DrivingTuple dr : W){
-            Element w = dr.tag;
-            ps.decommit(w, w, Di)
-            //thispp.dr.contains(hash.getHash(w, ))
-        }*/
+        log.file("-----------------------------------");
+        log.file("-----------------------------------");
         
-        
-        
-        /*for (Element e : dv) {
-            
-            String key = Decommit(Bi.get(y-1),Ri.get(y));
-            Log(key);
-            String value = Ui.get(key);
-            if(value != null){
-                Csp += Integer.parseInt(value);
-            }
-        }*/
-        return 0;
+        return sum;
     }
     
     

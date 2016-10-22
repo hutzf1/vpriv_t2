@@ -5,18 +5,48 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
 /**
  *
  * @author fh
  */
 public class Log {
     
+    File file = null;
+    FileWriter fw = null;
+    BufferedWriter bw = null;
+    
+    public Log() throws FileNotFoundException, IOException {
+        file = new File("log.txt");
+        fw = new FileWriter(file.getAbsoluteFile());
+        bw = new BufferedWriter(fw);
+    }
+    
     public void console(String message) {
         System.out.println(message);
     }
     
-    public void file(String message) {
+    public void file(String message) throws IOException {
+        bw.append(message);
+        bw.append("\r\n");
+    }
+    
+    public void both(String message) throws IOException {
         System.out.println(message);
+        bw.append(message);
+        bw.append("\r\n");
+    }
+    
+    public void close() throws IOException {
+        bw.close();
+        fw.close();
     }
     
 }

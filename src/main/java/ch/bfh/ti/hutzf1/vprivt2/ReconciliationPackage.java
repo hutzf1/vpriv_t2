@@ -5,13 +5,13 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
-import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
 import java.util.ArrayList;
 
 /**
  *
  * @author fh
  */
+
 public class ReconciliationPackage {
     public String id;
     public int i;

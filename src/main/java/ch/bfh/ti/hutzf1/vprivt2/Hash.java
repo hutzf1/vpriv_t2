@@ -5,13 +5,16 @@
  */
 package ch.bfh.ti.hutzf1.vprivt2;
 
+import ch.bfh.unicrypt.crypto.schemes.commitment.classes.PedersenCommitmentScheme;
 import ch.bfh.unicrypt.crypto.schemes.hashing.classes.FixedByteArrayHashingScheme;
 import ch.bfh.unicrypt.helper.math.Alphabet;
 import ch.bfh.unicrypt.math.algebra.concatenative.classes.StringMonoid;
 import ch.bfh.unicrypt.math.algebra.dualistic.classes.Z;
 import ch.bfh.unicrypt.math.algebra.general.classes.ProductSet;
 import ch.bfh.unicrypt.math.algebra.general.classes.Tuple;
+import ch.bfh.unicrypt.math.algebra.general.interfaces.CyclicGroup;
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
+import ch.bfh.unicrypt.math.algebra.multiplicative.classes.GStarModSafePrime;
 import java.math.BigInteger;
 
 /**
@@ -19,6 +22,12 @@ import java.math.BigInteger;
  * @author fh
  */
 public class Hash {
+    
+    /*// Create cyclic group G_q (modulo 167)
+    private final CyclicGroup CYCLICGROUP = GStarModSafePrime.getInstance(2903);
+    // Create commitment scheme to be used
+    private final PedersenCommitmentScheme COMMITMENTSCHEME = PedersenCommitmentScheme.getInstance(CYCLICGROUP);
+    */
     
     public Element getHash(Element message, Element key) {
 
@@ -41,7 +50,11 @@ public class Hash {
             return hash;
             */  
             
+            //Element commitment = COMMITMENTSCHEME.commit(message, key);
+            //return commitment;
+            
             return message;
+
     }
     
 }

@@ -18,7 +18,6 @@ public class DrivingTuple {
     
     public DrivingTuple(Element tag, Element cost) {
         this.tag = tag;
-        this.cost = cost;
-       
+        this.cost = cost;  
     }
 }

@@ -6,6 +6,7 @@
 package ch.bfh.ti.hutzf1.vprivt2;
 
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -33,7 +34,7 @@ public final class Vehicle {
     private final Hash hash;
     private final Log log;
 
-    public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash, Log log, int n, int s) {
+    public Vehicle(ServiceProvider sp, PedersenScheme ps, Hash hash, Log log, int n, int s) throws IOException {
         
         this.sp = sp;
         this.ps = ps;
@@ -57,7 +58,7 @@ public final class Vehicle {
         
         //final ArrayList<String> HASHES = new ArrayList<>();
         
-        log.console(ID);
+        log.file(ID);
         this.registration();
     }
     
@@ -82,80 +83,80 @@ public final class Vehicle {
         return KEYS.get(round);
     }
 
-    private void registration() {
+    private void registration() throws IOException {
         // Start vehicle registration
-        log.console(ID + " starts registration phase");
+        log.both(ID + " starts registration phase");
         
         // Generate Fresh Tags
-        log.console(ID + " generates fresh tags");
+        log.file(ID + " generates fresh tags");
         
         for (int x = 0; x < this.n; x++) {
             TAGS.add(ps.getTag());
-            log.console(ID + " tag: " + TAGS.get(x).getValue());
+            log.file(ID + " tag: " + TAGS.get(x).getValue());
         }
         
         // Fresh Keys
-        log.console(ID + " generates fresh keys");
+        log.file(ID + " generates fresh keys");
         
         for (int x = 0; x < this.s; x++) {
             KEYS.add(ps.getKey());
-            log.console (ID + " key: " + KEYS.get(x).getValue());
+            log.file(ID + " key: " + KEYS.get(x).getValue());
         }
   
         // Opening Keys for Tags
-        log.console(ID + " generates opening keys for tags");
+        log.file(ID + " generates opening keys for tags");
         
         for (int x = 0; x < this.s; x++) {
             for (int y = 0; y < n; y++) {
                 int index = x * y + y;
                 DV.add(ps.getOpeningKey());
-                log.console(ID + " tag opening key: " + DV.get(index).getValue());
+                log.file(ID + " tag opening key: " + DV.get(index).getValue());
             }
         }
         
         // Opening Keys for Keys
-        log.console(ID + " generate opening keys for keys");
+        log.file(ID + " generate opening keys for keys");
         
         for (int x = 0; x < this.s; x++) {
             DK.add(ps.getOpeningKey());
-            log.console(ID + " key opening key: "+ DK.get(x).getValue());
+            log.file(ID + " key opening key: "+ DK.get(x).getValue());
         }
         
         // Generate round package to send data to service provider
         final RoundPackage RI = new RoundPackage();
-        log.console(ID + " generates round package");
+        log.file(ID + " generates round package");
         
         RI.setId(ID);
-        log.console(ID + " adds ID " + ID + " to round package");
+        log.file(ID + " adds ID " + ID + " to round package");
         
         RI.setRound(i);
-        log.console(ID + " adds round " + i + " to round package");
+        log.file(ID + " adds round " + i + " to round package");
         
         RI.setKey(ps.commit(KEYS.get(i), DK.get(i)));
-        log.console(ID + " adds key " + KEYS.get(i) + " to round package");
+        log.file(ID + " adds key " + KEYS.get(i) + " to round package");
         
         for(int x = 0; x < this.n; x++) {
             // ENCRYPTION MISSING HERE!!!
             //RI.addCommit(ps.commit(hash.Hash(TAGS[x], KEYS[i]), DV[i][x]));
             int index = x * i + i;
             RI.addCommit(ps.commit(hash.getHash(TAGS.get(x), DK.get(i)), DV.get(index)));
-            log.console(ID + " adds commit of crypted " + TAGS.get(x).getValue() + " to round package");
+            log.file(ID + " adds commit of crypted " + TAGS.get(x).getValue() + " to round package");
         }
         
         sp.putVehicleData(RI);
-        log.console(ID + " send round package to service provider");
+        log.file(ID + " send round package to service provider");
     }
     
-    public void drive() {
+    public void drive() throws IOException {
         Location currentLocation = new Location();
         Date timestamp = new Date();
         Element randomTag = this.getRandomTag();
         int toll = sp.putDrivingData(randomTag, currentLocation, timestamp);
-        log.console(ID + " is driving. Tag " + randomTag.getValue() + " (" + currentLocation.LATIDUDE + ", " + currentLocation.LONGITUDE + ") - " + timestamp);
-        log.console(ID + " value of a toll station is " + toll);
+        log.both(ID + " is driving. Tag " + randomTag.getValue() + " (" + currentLocation.LATIDUDE + ", " + currentLocation.LONGITUDE + ") - " + timestamp);
+        log.file(ID + " value of a toll station is " + toll);
     }
 
-    public void reconciliation() {
+    public void reconciliation() throws IOException {
         int c = 0;
         int bi;
         Element Di = ps.getOpeningKey();
@@ -163,31 +164,30 @@ public final class Vehicle {
         ArrayList<DrivingTuple> W = sp.getAllTags();
         PermutatedPackage Ui = new PermutatedPackage();
         
-        log.console(ID + " is calculating cost...");
+        log.file(ID + " is calculating cost...");
         for (DrivingTuple dr : W) {
             if(TAGS.contains(dr.tag)) {
-                log.console(dr.tag.getValue().toString());
                 c += dr.cost.convertToBigInteger().intValue();
             }   
         }
-        log.console(ID + " calculated " + c);
+        log.both(ID + " calculated " + c);
         sp.putCostData(ID, c);
         
         // Send permutated data to service provider
         // Permute todo!
         
         // Opening Keys for Costs
-        log.console(ID + " generates opening keys for costs");
+        log.file(ID + " generates opening keys for costs");
         
         for (int x = 0; x <= i; x++) {
             for (int y = 0; y < W.size(); y++) {
                 int index = x * y + y;
                 DC.add(ps.getOpeningKey());
-                log.console(ID + " tag opening key: " + DC.get(index).getValue());
+                log.file(ID + " tag opening key: " + DC.get(index).getValue());
             }
         }
         
-        log.console(ID + " is permutating W and send the package to service provider");
+        log.file(ID + " is permutating W and send the package to service provider");
         int m = 0;
         Ui.setId(ID);
         for (DrivingTuple dr : W) {
@@ -198,14 +198,15 @@ public final class Vehicle {
         
         //bi = sp.getCheckMethod();
         bi = 1;
-        log.console(ID + " bi is: " + Integer.toString(bi)); 
+        
+        log.both(ID + " bi is: " + Integer.toString(bi)); 
         
         // Vehicle sends to Service Provider
         if(bi == 0){
-            sp.calculate0(ID, KEYS.get(i), DC);  
+            log.both(ID + " service provider calculated " + sp.calculate0(ID, KEYS.get(i), DC));  
         }
         else if(bi == 1){
-            sp.calculate1(ID, DV, Di);
+            log.both(ID + " service provider calculated " + sp.calculate1(ID, DV, Di));
         }
     }
 }

@@ -9,10 +9,7 @@ import ch.bfh.unicrypt.crypto.schemes.commitment.classes.PedersenCommitmentSchem
 import ch.bfh.unicrypt.math.algebra.general.classes.BooleanElement;
 import ch.bfh.unicrypt.math.algebra.general.interfaces.CyclicGroup;
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
-import ch.bfh.unicrypt.math.algebra.multiplicative.classes.GStarModPrime;
 import ch.bfh.unicrypt.math.algebra.multiplicative.classes.GStarModSafePrime;
-import java.util.Random;
-
 
 /**
  *
@@ -22,26 +19,16 @@ import java.util.Random;
 public class PedersenScheme {
 
     // Create cyclic group G_q (modulo 167)
-    private final CyclicGroup CYCLICGROUP = GStarModSafePrime.getInstance(167);
+    private final CyclicGroup CYCLICGROUP = GStarModSafePrime.getInstance(2903);
     // Create commitment scheme to be used
     private final PedersenCommitmentScheme COMMITMENTSCHEME = PedersenCommitmentScheme.getInstance(CYCLICGROUP);
     
-    public PedersenScheme() {
-        
-    }
-    
     public Element getTag() {
-        // Create message and randomization to commit
-        //Random random = new Random();
-        //Element message = COMMITMENTSCHEME.getMessageSpace().getElement(random.nextInt(60 + 1));
         Element message = COMMITMENTSCHEME.getRandomizationSpace().getRandomElement();
         return message;
     }
     
     public Element getKey() {
-        // Create message and randomization to commit
-        //Random random = new Random();
-        //Element message = COMMITMENTSCHEME.getMessageSpace().getElement(random.nextInt(60 + 1));
         Element message = COMMITMENTSCHEME.getRandomizationSpace().getRandomElement();
         return message;
     }

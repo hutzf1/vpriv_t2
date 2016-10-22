@@ -6,6 +6,7 @@
 package ch.bfh.ti.hutzf1.vprivt2;
 
 import ch.bfh.unicrypt.math.algebra.general.interfaces.Element;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -16,10 +17,7 @@ import java.util.Random;
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         PedersenScheme ps = new PedersenScheme();
         Log log = new Log();
@@ -27,8 +25,8 @@ public class Main {
         ServiceProvider sp = new ServiceProvider(ps, log, hash);
 
         // Variables
-        int numberOfVehicles = 2;
-        int n = 2; // number of new tags
+        int numberOfVehicles = 1;
+        int n = 4; // number of new tags
         int s = 1; // number of new keys
         int maxToll = n;
         int round = 1;
@@ -39,7 +37,7 @@ public class Main {
         // REGISTRATION PHASE //
         ////////////////////////
         
-        log.console(" -- START REGISTRATION PHASE -- ");
+        log.both(" -- START REGISTRATION PHASE -- ");
         
         // Generate Vehicles
         ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -48,13 +46,13 @@ public class Main {
             vehicles.add(newVehicle);
         }
         
-        log.console(" -- END REGISTRATION PHASE -- ");
+        log.both(" -- END REGISTRATION PHASE -- ");
         
         ///////////////////
         // DRIVING PHASE //
         ///////////////////
         
-        log.console(" -- START DRIVING PHASE -- ");
+        log.both(" -- START DRIVING PHASE -- ");
         
         for (Vehicle vehicle : vehicles) {
             for(int y = 0; y < rand.nextInt(maxToll) + 1; y++) {
@@ -62,18 +60,19 @@ public class Main {
             }
         }
         
-        log.console(" -- END DRIVING PHASE -- ");
+        log.both(" -- END DRIVING PHASE -- ");
 
         //////////////////////////
         // RECONCILIATION PHASE //
         //////////////////////////
         
-        log.console(" -- START RECONCILIATION PHASE -- ");
+        log.both(" -- START RECONCILIATION PHASE -- ");
         
         for (Vehicle vehicle : vehicles) {
             vehicle.reconciliation();            
         }   
-    log.console(" -- END RECONCILIATION PHASE -- ");
+    log.both(" -- END RECONCILIATION PHASE -- ");
+    log.close();
     }
     
 }
