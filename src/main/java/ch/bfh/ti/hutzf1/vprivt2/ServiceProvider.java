@@ -95,8 +95,8 @@ public class ServiceProvider {
                 if(ps.commit(dt.cost, dc.get(m)).equals(vehicleDt.cost)) {
                 if(hash.getHash(dt.tag, key).equals(vehicleDt.tag)) {
                     //if(ps.commit(dt.cost, dc.get(m)).equals(vehicleDt.cost)) {
-                        log.console(ps.commit(dt.cost, dc.get(m)).toString());
-                        log.console(vehicleDt.cost.toString());
+                        log.file(ps.commit(dt.cost, dc.get(m)).toString());
+                        log.file(vehicleDt.cost.toString());
                         sum = sum + dt.cost.convertToBigInteger().intValue();
                     }
                 }
@@ -145,16 +145,20 @@ public class ServiceProvider {
         
         int sum = 0;
         
-        log.console(String.valueOf(thispp.dr.size()));
-        
         for (DrivingTuple d1 : thispp.dr) {
             int i = 0;
+            
             for (Element e : thisrp.hashes) {
-                log.console(e.toString());
-                log.console(ps.commit(d1.tag, dv.get(i)).toString());
-                log.console(String.valueOf(i));
-                i++;
+                if(e.equals(ps.commit(d1.tag, dv.get(i)))) {
+                    log.file(d1.cost.toString());
+                    for(DrivingTuple d2 : W) {
+                        if(e.equals(ps.commit(d2.tag, dv.get(i)))){
+                            sum = sum + d2.cost.convertToBigInteger().intValue();
+                        }
+                    }
+                }
             }
+            i++;
         }
 
         

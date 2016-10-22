@@ -25,8 +25,8 @@ public class Main {
         ServiceProvider sp = new ServiceProvider(ps, log, hash);
 
         // Variables
-        int numberOfVehicles = 1;
-        int n = 4; // number of new tags
+        int numberOfVehicles = 3;
+        int n = 25; // number of new tags
         int s = 1; // number of new keys
         int maxToll = n;
         int round = 1;

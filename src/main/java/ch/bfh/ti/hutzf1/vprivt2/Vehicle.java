@@ -196,8 +196,7 @@ public final class Vehicle {
         }
         sp.putPermutatedPackage(Ui);
         
-        //bi = sp.getCheckMethod();
-        bi = 1;
+        bi = sp.getCheckMethod();
         
         log.both(ID + " bi is: " + Integer.toString(bi)); 
         
