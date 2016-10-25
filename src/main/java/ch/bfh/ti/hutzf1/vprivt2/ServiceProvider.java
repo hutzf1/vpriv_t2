@@ -98,6 +98,7 @@ public class ServiceProvider {
                         log.file(ps.commit(dt.cost, dc.get(m)).toString());
                         log.file(vehicleDt.cost.toString());
                         sum = sum + dt.cost.convertToBigInteger().intValue();
+                        break;
                     }
                 }
                 m++;
@@ -154,6 +155,7 @@ public class ServiceProvider {
                     for(DrivingTuple d2 : W) {
                         if(e.equals(ps.commit(d2.tag, dv.get(i)))){
                             sum = sum + d2.cost.convertToBigInteger().intValue();
+                            break;
                         }
                     }
                 }

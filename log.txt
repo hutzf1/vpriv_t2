@@ -1,53 +1,491 @@
  -- START REGISTRATION PHASE -- 
-FFNTGS86
-FFNTGS86 starts registration phase
-FFNTGS86 generates fresh tags
-FFNTGS86 tag: 383
-FFNTGS86 tag: 737
-FFNTGS86 tag: 705
-FFNTGS86 tag: 1151
-FFNTGS86 generates fresh keys
-FFNTGS86 key: 393
-FFNTGS86 generates opening keys for tags
-FFNTGS86 tag opening key: 713
-FFNTGS86 tag opening key: 859
-FFNTGS86 tag opening key: 1254
-FFNTGS86 tag opening key: 708
-FFNTGS86 generate opening keys for keys
-FFNTGS86 key opening key: 81
-FFNTGS86 generates round package
-FFNTGS86 adds ID FFNTGS86 to round package
-FFNTGS86 adds round 0 to round package
-FFNTGS86 adds key ZModElement[393] to round package
-FFNTGS86 adds commit of crypted 383 to round package
-FFNTGS86 adds commit of crypted 737 to round package
-FFNTGS86 adds commit of crypted 705 to round package
-FFNTGS86 adds commit of crypted 1151 to round package
-FFNTGS86 send round package to service provider
+1VRJ5ILP
+1VRJ5ILP starts registration phase
+1VRJ5ILP generates fresh tags
+1VRJ5ILP tag: 386246
+1VRJ5ILP tag: 741435
+1VRJ5ILP tag: 746470
+1VRJ5ILP tag: 982047
+1VRJ5ILP tag: 653290
+1VRJ5ILP tag: 665366
+1VRJ5ILP tag: 901766
+1VRJ5ILP tag: 83702
+1VRJ5ILP tag: 872767
+1VRJ5ILP tag: 434593
+1VRJ5ILP tag: 1079293
+1VRJ5ILP tag: 115147
+1VRJ5ILP tag: 578309
+1VRJ5ILP tag: 178478
+1VRJ5ILP tag: 1017737
+1VRJ5ILP tag: 422125
+1VRJ5ILP tag: 875484
+1VRJ5ILP tag: 90486
+1VRJ5ILP tag: 834567
+1VRJ5ILP tag: 434912
+1VRJ5ILP tag: 1283363
+1VRJ5ILP tag: 1343667
+1VRJ5ILP tag: 700766
+1VRJ5ILP tag: 881216
+1VRJ5ILP tag: 848588
+1VRJ5ILP generates fresh keys
+1VRJ5ILP key: 654989
+1VRJ5ILP generates opening keys for tags
+1VRJ5ILP tag opening key: 788007
+1VRJ5ILP tag opening key: 25191
+1VRJ5ILP tag opening key: 169176
+1VRJ5ILP tag opening key: 482876
+1VRJ5ILP tag opening key: 897269
+1VRJ5ILP tag opening key: 989060
+1VRJ5ILP tag opening key: 690151
+1VRJ5ILP tag opening key: 218467
+1VRJ5ILP tag opening key: 564775
+1VRJ5ILP tag opening key: 749154
+1VRJ5ILP tag opening key: 981690
+1VRJ5ILP tag opening key: 863571
+1VRJ5ILP tag opening key: 1116453
+1VRJ5ILP tag opening key: 1214736
+1VRJ5ILP tag opening key: 454816
+1VRJ5ILP tag opening key: 1263387
+1VRJ5ILP tag opening key: 1276679
+1VRJ5ILP tag opening key: 451417
+1VRJ5ILP tag opening key: 668642
+1VRJ5ILP tag opening key: 563862
+1VRJ5ILP tag opening key: 20386
+1VRJ5ILP tag opening key: 355251
+1VRJ5ILP tag opening key: 671176
+1VRJ5ILP tag opening key: 1125402
+1VRJ5ILP tag opening key: 341434
+1VRJ5ILP generate opening keys for keys
+1VRJ5ILP key opening key: 916957
+1VRJ5ILP generates round package
+1VRJ5ILP adds ID 1VRJ5ILP to round package
+1VRJ5ILP adds round 0 to round package
+1VRJ5ILP adds key ZModElement[654989] to round package
+1VRJ5ILP adds commit of crypted 386246 to round package
+1VRJ5ILP adds commit of crypted 741435 to round package
+1VRJ5ILP adds commit of crypted 746470 to round package
+1VRJ5ILP adds commit of crypted 982047 to round package
+1VRJ5ILP adds commit of crypted 653290 to round package
+1VRJ5ILP adds commit of crypted 665366 to round package
+1VRJ5ILP adds commit of crypted 901766 to round package
+1VRJ5ILP adds commit of crypted 83702 to round package
+1VRJ5ILP adds commit of crypted 872767 to round package
+1VRJ5ILP adds commit of crypted 434593 to round package
+1VRJ5ILP adds commit of crypted 1079293 to round package
+1VRJ5ILP adds commit of crypted 115147 to round package
+1VRJ5ILP adds commit of crypted 578309 to round package
+1VRJ5ILP adds commit of crypted 178478 to round package
+1VRJ5ILP adds commit of crypted 1017737 to round package
+1VRJ5ILP adds commit of crypted 422125 to round package
+1VRJ5ILP adds commit of crypted 875484 to round package
+1VRJ5ILP adds commit of crypted 90486 to round package
+1VRJ5ILP adds commit of crypted 834567 to round package
+1VRJ5ILP adds commit of crypted 434912 to round package
+1VRJ5ILP adds commit of crypted 1283363 to round package
+1VRJ5ILP adds commit of crypted 1343667 to round package
+1VRJ5ILP adds commit of crypted 700766 to round package
+1VRJ5ILP adds commit of crypted 881216 to round package
+1VRJ5ILP adds commit of crypted 848588 to round package
+1VRJ5ILP send round package to service provider
+FOJJBG2Q
+FOJJBG2Q starts registration phase
+FOJJBG2Q generates fresh tags
+FOJJBG2Q tag: 1147198
+FOJJBG2Q tag: 382723
+FOJJBG2Q tag: 290314
+FOJJBG2Q tag: 1244396
+FOJJBG2Q tag: 101010
+FOJJBG2Q tag: 968323
+FOJJBG2Q tag: 452169
+FOJJBG2Q tag: 1246359
+FOJJBG2Q tag: 643187
+FOJJBG2Q tag: 74614
+FOJJBG2Q tag: 393735
+FOJJBG2Q tag: 418800
+FOJJBG2Q tag: 1013982
+FOJJBG2Q tag: 1213650
+FOJJBG2Q tag: 827404
+FOJJBG2Q tag: 1159425
+FOJJBG2Q tag: 411642
+FOJJBG2Q tag: 1018889
+FOJJBG2Q tag: 748817
+FOJJBG2Q tag: 1243699
+FOJJBG2Q tag: 555197
+FOJJBG2Q tag: 1342624
+FOJJBG2Q tag: 880054
+FOJJBG2Q tag: 943164
+FOJJBG2Q tag: 424303
+FOJJBG2Q generates fresh keys
+FOJJBG2Q key: 1020959
+FOJJBG2Q generates opening keys for tags
+FOJJBG2Q tag opening key: 697777
+FOJJBG2Q tag opening key: 210066
+FOJJBG2Q tag opening key: 746146
+FOJJBG2Q tag opening key: 763461
+FOJJBG2Q tag opening key: 977675
+FOJJBG2Q tag opening key: 1336195
+FOJJBG2Q tag opening key: 92055
+FOJJBG2Q tag opening key: 290261
+FOJJBG2Q tag opening key: 1054844
+FOJJBG2Q tag opening key: 650029
+FOJJBG2Q tag opening key: 842584
+FOJJBG2Q tag opening key: 334108
+FOJJBG2Q tag opening key: 950730
+FOJJBG2Q tag opening key: 1052281
+FOJJBG2Q tag opening key: 284907
+FOJJBG2Q tag opening key: 1256089
+FOJJBG2Q tag opening key: 1190659
+FOJJBG2Q tag opening key: 350080
+FOJJBG2Q tag opening key: 403304
+FOJJBG2Q tag opening key: 771654
+FOJJBG2Q tag opening key: 608094
+FOJJBG2Q tag opening key: 599058
+FOJJBG2Q tag opening key: 1060904
+FOJJBG2Q tag opening key: 556378
+FOJJBG2Q tag opening key: 366208
+FOJJBG2Q generate opening keys for keys
+FOJJBG2Q key opening key: 561622
+FOJJBG2Q generates round package
+FOJJBG2Q adds ID FOJJBG2Q to round package
+FOJJBG2Q adds round 0 to round package
+FOJJBG2Q adds key ZModElement[1020959] to round package
+FOJJBG2Q adds commit of crypted 1147198 to round package
+FOJJBG2Q adds commit of crypted 382723 to round package
+FOJJBG2Q adds commit of crypted 290314 to round package
+FOJJBG2Q adds commit of crypted 1244396 to round package
+FOJJBG2Q adds commit of crypted 101010 to round package
+FOJJBG2Q adds commit of crypted 968323 to round package
+FOJJBG2Q adds commit of crypted 452169 to round package
+FOJJBG2Q adds commit of crypted 1246359 to round package
+FOJJBG2Q adds commit of crypted 643187 to round package
+FOJJBG2Q adds commit of crypted 74614 to round package
+FOJJBG2Q adds commit of crypted 393735 to round package
+FOJJBG2Q adds commit of crypted 418800 to round package
+FOJJBG2Q adds commit of crypted 1013982 to round package
+FOJJBG2Q adds commit of crypted 1213650 to round package
+FOJJBG2Q adds commit of crypted 827404 to round package
+FOJJBG2Q adds commit of crypted 1159425 to round package
+FOJJBG2Q adds commit of crypted 411642 to round package
+FOJJBG2Q adds commit of crypted 1018889 to round package
+FOJJBG2Q adds commit of crypted 748817 to round package
+FOJJBG2Q adds commit of crypted 1243699 to round package
+FOJJBG2Q adds commit of crypted 555197 to round package
+FOJJBG2Q adds commit of crypted 1342624 to round package
+FOJJBG2Q adds commit of crypted 880054 to round package
+FOJJBG2Q adds commit of crypted 943164 to round package
+FOJJBG2Q adds commit of crypted 424303 to round package
+FOJJBG2Q send round package to service provider
+C7IG1A87
+C7IG1A87 starts registration phase
+C7IG1A87 generates fresh tags
+C7IG1A87 tag: 1109544
+C7IG1A87 tag: 1019205
+C7IG1A87 tag: 198255
+C7IG1A87 tag: 489725
+C7IG1A87 tag: 466399
+C7IG1A87 tag: 673852
+C7IG1A87 tag: 763576
+C7IG1A87 tag: 413928
+C7IG1A87 tag: 619794
+C7IG1A87 tag: 919578
+C7IG1A87 tag: 1321653
+C7IG1A87 tag: 708175
+C7IG1A87 tag: 282609
+C7IG1A87 tag: 101521
+C7IG1A87 tag: 642677
+C7IG1A87 tag: 814283
+C7IG1A87 tag: 682423
+C7IG1A87 tag: 112345
+C7IG1A87 tag: 982692
+C7IG1A87 tag: 1290217
+C7IG1A87 tag: 888013
+C7IG1A87 tag: 317051
+C7IG1A87 tag: 864026
+C7IG1A87 tag: 978134
+C7IG1A87 tag: 206918
+C7IG1A87 generates fresh keys
+C7IG1A87 key: 293043
+C7IG1A87 generates opening keys for tags
+C7IG1A87 tag opening key: 211050
+C7IG1A87 tag opening key: 163816
+C7IG1A87 tag opening key: 1149340
+C7IG1A87 tag opening key: 203703
+C7IG1A87 tag opening key: 1159369
+C7IG1A87 tag opening key: 68622
+C7IG1A87 tag opening key: 1064354
+C7IG1A87 tag opening key: 166234
+C7IG1A87 tag opening key: 1133636
+C7IG1A87 tag opening key: 742375
+C7IG1A87 tag opening key: 1012567
+C7IG1A87 tag opening key: 992869
+C7IG1A87 tag opening key: 764735
+C7IG1A87 tag opening key: 569506
+C7IG1A87 tag opening key: 262773
+C7IG1A87 tag opening key: 525768
+C7IG1A87 tag opening key: 392211
+C7IG1A87 tag opening key: 100474
+C7IG1A87 tag opening key: 841110
+C7IG1A87 tag opening key: 820875
+C7IG1A87 tag opening key: 221758
+C7IG1A87 tag opening key: 1005227
+C7IG1A87 tag opening key: 288614
+C7IG1A87 tag opening key: 644571
+C7IG1A87 tag opening key: 191101
+C7IG1A87 generate opening keys for keys
+C7IG1A87 key opening key: 386092
+C7IG1A87 generates round package
+C7IG1A87 adds ID C7IG1A87 to round package
+C7IG1A87 adds round 0 to round package
+C7IG1A87 adds key ZModElement[293043] to round package
+C7IG1A87 adds commit of crypted 1109544 to round package
+C7IG1A87 adds commit of crypted 1019205 to round package
+C7IG1A87 adds commit of crypted 198255 to round package
+C7IG1A87 adds commit of crypted 489725 to round package
+C7IG1A87 adds commit of crypted 466399 to round package
+C7IG1A87 adds commit of crypted 673852 to round package
+C7IG1A87 adds commit of crypted 763576 to round package
+C7IG1A87 adds commit of crypted 413928 to round package
+C7IG1A87 adds commit of crypted 619794 to round package
+C7IG1A87 adds commit of crypted 919578 to round package
+C7IG1A87 adds commit of crypted 1321653 to round package
+C7IG1A87 adds commit of crypted 708175 to round package
+C7IG1A87 adds commit of crypted 282609 to round package
+C7IG1A87 adds commit of crypted 101521 to round package
+C7IG1A87 adds commit of crypted 642677 to round package
+C7IG1A87 adds commit of crypted 814283 to round package
+C7IG1A87 adds commit of crypted 682423 to round package
+C7IG1A87 adds commit of crypted 112345 to round package
+C7IG1A87 adds commit of crypted 982692 to round package
+C7IG1A87 adds commit of crypted 1290217 to round package
+C7IG1A87 adds commit of crypted 888013 to round package
+C7IG1A87 adds commit of crypted 317051 to round package
+C7IG1A87 adds commit of crypted 864026 to round package
+C7IG1A87 adds commit of crypted 978134 to round package
+C7IG1A87 adds commit of crypted 206918 to round package
+C7IG1A87 send round package to service provider
  -- END REGISTRATION PHASE -- 
  -- START DRIVING PHASE -- 
-FFNTGS86 is driving. Tag 737 (155, 76) - Sat Oct 22 13:45:30 UTC 2016
-FFNTGS86 value of a toll station is 6
-FFNTGS86 is driving. Tag 383 (87, 21) - Sat Oct 22 13:45:30 UTC 2016
-FFNTGS86 value of a toll station is 8
-FFNTGS86 is driving. Tag 705 (109, 61) - Sat Oct 22 13:45:30 UTC 2016
-FFNTGS86 value of a toll station is 0
+1VRJ5ILP is driving. Tag 1017737 (82, 9) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 9
+1VRJ5ILP is driving. Tag 83702 (50, 80) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 3
+1VRJ5ILP is driving. Tag 434912 (107, 54) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 9
+1VRJ5ILP is driving. Tag 422125 (97, 57) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 8
+1VRJ5ILP is driving. Tag 848588 (49, 37) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 9
+1VRJ5ILP is driving. Tag 1017737 (42, 88) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 9
+1VRJ5ILP is driving. Tag 834567 (23, 80) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 8
+1VRJ5ILP is driving. Tag 872767 (87, 66) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 0
+1VRJ5ILP is driving. Tag 848588 (23, 23) - Sat Oct 22 16:20:46 UTC 2016
+1VRJ5ILP value of a toll station is 1
+FOJJBG2Q is driving. Tag 1342624 (74, 89) - Sat Oct 22 16:20:46 UTC 2016
+FOJJBG2Q value of a toll station is 5
+FOJJBG2Q is driving. Tag 880054 (65, 53) - Sat Oct 22 16:20:46 UTC 2016
+FOJJBG2Q value of a toll station is 9
+FOJJBG2Q is driving. Tag 555197 (153, 86) - Sat Oct 22 16:20:46 UTC 2016
+FOJJBG2Q value of a toll station is 9
+FOJJBG2Q is driving. Tag 748817 (87, 40) - Sat Oct 22 16:20:46 UTC 2016
+FOJJBG2Q value of a toll station is 8
+FOJJBG2Q is driving. Tag 382723 (45, 72) - Sat Oct 22 16:20:46 UTC 2016
+FOJJBG2Q value of a toll station is 6
+FOJJBG2Q is driving. Tag 418800 (38, 68) - Sat Oct 22 16:20:46 UTC 2016
+FOJJBG2Q value of a toll station is 7
+C7IG1A87 is driving. Tag 413928 (21, 43) - Sat Oct 22 16:20:46 UTC 2016
+C7IG1A87 value of a toll station is 4
+C7IG1A87 is driving. Tag 101521 (40, 27) - Sat Oct 22 16:20:46 UTC 2016
+C7IG1A87 value of a toll station is 6
+C7IG1A87 is driving. Tag 1290217 (40, 68) - Sat Oct 22 16:20:46 UTC 2016
+C7IG1A87 value of a toll station is 2
+C7IG1A87 is driving. Tag 1321653 (13, 20) - Sat Oct 22 16:20:46 UTC 2016
+C7IG1A87 value of a toll station is 1
+C7IG1A87 is driving. Tag 982692 (125, 51) - Sat Oct 22 16:20:46 UTC 2016
+C7IG1A87 value of a toll station is 1
  -- END DRIVING PHASE -- 
  -- START RECONCILIATION PHASE -- 
-FFNTGS86 is calculating cost...
-FFNTGS86 calculated 14
-FFNTGS86 generates opening keys for costs
-FFNTGS86 tag opening key: 671
-FFNTGS86 tag opening key: 242
-FFNTGS86 tag opening key: 1011
-FFNTGS86 is permutating W and send the package to service provider
-FFNTGS86 bi is: 1
-FFNTGS86 calculating by service provider
+1VRJ5ILP is calculating cost...
+1VRJ5ILP calculated 56
+1VRJ5ILP generates opening keys for costs
+1VRJ5ILP tag opening key: 976505
+1VRJ5ILP tag opening key: 1091543
+1VRJ5ILP tag opening key: 855056
+1VRJ5ILP tag opening key: 345739
+1VRJ5ILP tag opening key: 716544
+1VRJ5ILP tag opening key: 1082186
+1VRJ5ILP tag opening key: 807718
+1VRJ5ILP tag opening key: 968065
+1VRJ5ILP tag opening key: 911486
+1VRJ5ILP tag opening key: 839197
+1VRJ5ILP tag opening key: 393229
+1VRJ5ILP tag opening key: 502757
+1VRJ5ILP tag opening key: 1153506
+1VRJ5ILP tag opening key: 178923
+1VRJ5ILP tag opening key: 1003519
+1VRJ5ILP tag opening key: 266170
+1VRJ5ILP tag opening key: 1172655
+1VRJ5ILP tag opening key: 1122862
+1VRJ5ILP tag opening key: 356138
+1VRJ5ILP tag opening key: 562569
+1VRJ5ILP is permutating W and send the package to service provider
+1VRJ5ILP bi is: 0
+-----------------------------------
+BI = 0, Service Provider calculates
+-----------------------------------
+GStarModElement[1395328]
+GStarModElement[1395328]
+GStarModElement[1063681]
+GStarModElement[1063681]
+GStarModElement[182292]
+GStarModElement[182292]
+GStarModElement[692241]
+GStarModElement[692241]
+GStarModElement[2591581]
+GStarModElement[2591581]
+GStarModElement[1395328]
+GStarModElement[1395328]
+GStarModElement[285348]
+GStarModElement[285348]
+GStarModElement[296718]
+GStarModElement[296718]
+GStarModElement[2438352]
+GStarModElement[2438352]
+GStarModElement[74408]
+GStarModElement[74408]
+GStarModElement[1490538]
+GStarModElement[1490538]
+GStarModElement[261433]
+GStarModElement[261433]
+GStarModElement[1245768]
+GStarModElement[1245768]
+GStarModElement[402729]
+GStarModElement[402729]
+GStarModElement[1559693]
+GStarModElement[1559693]
+GStarModElement[1916943]
+GStarModElement[1916943]
+GStarModElement[200658]
+GStarModElement[200658]
+GStarModElement[2438595]
+GStarModElement[2438595]
+GStarModElement[696839]
+GStarModElement[696839]
+GStarModElement[1764773]
+GStarModElement[1764773]
 -----------------------------------
 -----------------------------------
-pp: FFNTGS86
-rp: FFNTGS86
+1VRJ5ILP service provider calculated 114
+FOJJBG2Q is calculating cost...
+FOJJBG2Q calculated 44
+FOJJBG2Q generates opening keys for costs
+FOJJBG2Q tag opening key: 466390
+FOJJBG2Q tag opening key: 410129
+FOJJBG2Q tag opening key: 438337
+FOJJBG2Q tag opening key: 533727
+FOJJBG2Q tag opening key: 1022451
+FOJJBG2Q tag opening key: 120865
+FOJJBG2Q tag opening key: 1111308
+FOJJBG2Q tag opening key: 1266896
+FOJJBG2Q tag opening key: 941731
+FOJJBG2Q tag opening key: 1236896
+FOJJBG2Q tag opening key: 1243272
+FOJJBG2Q tag opening key: 1105193
+FOJJBG2Q tag opening key: 166453
+FOJJBG2Q tag opening key: 826035
+FOJJBG2Q tag opening key: 296244
+FOJJBG2Q tag opening key: 42527
+FOJJBG2Q tag opening key: 197346
+FOJJBG2Q tag opening key: 1116291
+FOJJBG2Q tag opening key: 634175
+FOJJBG2Q tag opening key: 936851
+FOJJBG2Q is permutating W and send the package to service provider
+FOJJBG2Q bi is: 1
+FOJJBG2Q calculating by service provider
 -----------------------------------
 -----------------------------------
-FFNTGS86 service provider calculated 0
+pp: FOJJBG2Q
+rp: FOJJBG2Q
+GStarModElement[2424252]
+GStarModElement[1960480]
+GStarModElement[1639171]
+GStarModElement[1575176]
+GStarModElement[1062249]
+GStarModElement[1433248]
+-----------------------------------
+-----------------------------------
+FOJJBG2Q service provider calculated 44
+C7IG1A87 is calculating cost...
+C7IG1A87 calculated 14
+C7IG1A87 generates opening keys for costs
+C7IG1A87 tag opening key: 1339369
+C7IG1A87 tag opening key: 1159707
+C7IG1A87 tag opening key: 915480
+C7IG1A87 tag opening key: 1088705
+C7IG1A87 tag opening key: 213041
+C7IG1A87 tag opening key: 922588
+C7IG1A87 tag opening key: 1063279
+C7IG1A87 tag opening key: 478379
+C7IG1A87 tag opening key: 199206
+C7IG1A87 tag opening key: 1222619
+C7IG1A87 tag opening key: 1042619
+C7IG1A87 tag opening key: 1263682
+C7IG1A87 tag opening key: 1271485
+C7IG1A87 tag opening key: 8757
+C7IG1A87 tag opening key: 1254525
+C7IG1A87 tag opening key: 158221
+C7IG1A87 tag opening key: 1309689
+C7IG1A87 tag opening key: 166943
+C7IG1A87 tag opening key: 1083082
+C7IG1A87 tag opening key: 1302273
+C7IG1A87 is permutating W and send the package to service provider
+C7IG1A87 bi is: 0
+-----------------------------------
+BI = 0, Service Provider calculates
+-----------------------------------
+GStarModElement[345758]
+GStarModElement[345758]
+GStarModElement[72299]
+GStarModElement[72299]
+GStarModElement[1893900]
+GStarModElement[1893900]
+GStarModElement[521908]
+GStarModElement[521908]
+GStarModElement[468937]
+GStarModElement[468937]
+GStarModElement[345758]
+GStarModElement[345758]
+GStarModElement[846979]
+GStarModElement[846979]
+GStarModElement[305294]
+GStarModElement[305294]
+GStarModElement[1062591]
+GStarModElement[1062591]
+GStarModElement[2333637]
+GStarModElement[2333637]
+GStarModElement[2577070]
+GStarModElement[2577070]
+GStarModElement[1661605]
+GStarModElement[1661605]
+GStarModElement[2565986]
+GStarModElement[2565986]
+GStarModElement[1186456]
+GStarModElement[1186456]
+GStarModElement[1805048]
+GStarModElement[1805048]
+GStarModElement[1977618]
+GStarModElement[1977618]
+GStarModElement[1288464]
+GStarModElement[1288464]
+GStarModElement[727330]
+GStarModElement[727330]
+GStarModElement[486853]
+GStarModElement[486853]
+GStarModElement[484027]
+GStarModElement[484027]
+-----------------------------------
+-----------------------------------
+C7IG1A87 service provider calculated 114
  -- END RECONCILIATION PHASE -- 
